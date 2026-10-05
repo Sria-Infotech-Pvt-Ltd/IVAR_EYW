@@ -85,6 +85,7 @@ export default function FoodCategoryPage() {
   const [dietary, setDietary] = useState([]);
   const [price, setPrice] = useState(1000);
   const [sort, setSort] = useState("featured");
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const allProducts = cat ? productsForCategory(cat.slug) : [];
   const ingredientOptions = useMemo(() => {
@@ -133,16 +134,31 @@ export default function FoodCategoryPage() {
 
       <section className="bg-[#FAFAF8]">
       <div className="max-w-[1320px] mx-auto px-[4vw] pt-10 md:pt-14 pb-10 md:pb-14 grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10">
-        <Sidebar
-          ingredientOptions={ingredientOptions}
-          ingredientFilter={ingredientFilter}
-          setIngredientFilter={setIngredientFilter}
-          dietary={dietary}
-          setDietary={setDietary}
-          price={price}
-          setPrice={setPrice}
-          onApply={() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-        />
+        <button
+          type="button"
+          onClick={() => setFiltersOpen((v) => !v)}
+          className="lg:hidden w-full flex items-center justify-between rounded-xl border border-[#d6ddd7] bg-white px-4 py-3 text-sm font-semibold text-ivar-ink"
+          aria-expanded={filtersOpen}
+        >
+          Filters
+          <LineIcon name="arrow" size={14} stroke={2} className={`transition-transform ${filtersOpen ? "rotate-90" : ""}`} />
+        </button>
+
+        <div className={`${filtersOpen ? "block" : "hidden"} lg:block`}>
+          <Sidebar
+            ingredientOptions={ingredientOptions}
+            ingredientFilter={ingredientFilter}
+            setIngredientFilter={setIngredientFilter}
+            dietary={dietary}
+            setDietary={setDietary}
+            price={price}
+            setPrice={setPrice}
+            onApply={() => {
+              setFiltersOpen(false);
+              document.getElementById("results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+          />
+        </div>
 
         <div id="results">
           <div className="flex items-end justify-between mb-8 flex-wrap gap-4 border-b border-ivar-forest/10 pb-6">

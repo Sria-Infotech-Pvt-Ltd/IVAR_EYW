@@ -140,7 +140,7 @@ export default function CorporateOrdersPage() {
               </select>
             </label>
           </div>
-          <div className="grid grid-cols-3 gap-4 text-center mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center mb-6">
             <div className="bg-[#ECECE9] rounded-xl py-3">
               <p className="text-sm font-bold">{money(calcResult.perPerson)}</p>
               <p className="text-[10px] text-[#6b7771]">Per Person</p>

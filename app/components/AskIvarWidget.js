@@ -73,7 +73,7 @@ export default function AskIvarWidget() {
       </button>
 
       {open && (
-        <div className="fixed bottom-[220px] md:bottom-[168px] right-5 z-40 w-[92vw] max-w-sm h-[65vh] max-h-[520px] bg-[#fffdf8] border border-[#e6e4dc] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="fixed bottom-[220px] md:bottom-[168px] right-5 z-40 w-[92vw] max-w-sm h-[min(65vh,calc(100dvh-240px))] md:h-[min(65vh,calc(100dvh-188px))] max-h-[520px] bg-[#fffdf8] border border-[#e6e4dc] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
           <div className="flex items-center gap-3 p-4 border-b border-[#e6e4dc] bg-ivar-dark text-white">
             <span className="text-2xl">🌿</span>
             <div className="flex-1">

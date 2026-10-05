@@ -40,7 +40,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[560px] md:h-[680px] overflow-hidden">
+    <section className="relative h-[min(560px,100dvh)] md:h-[680px] min-h-[460px] overflow-hidden">
       {slides.map((s, i) => (
         <div
           key={i}

@@ -156,7 +156,7 @@ export default function PlansPage() {
             {step === 1 && (
               <>
                 <h2 className="font-serif text-xl font-medium">1. Your Details</h2>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input placeholder="Full Name*" value={fullName} onChange={(e) => setFullName(e.target.value)} className="h-11 rounded-xl border border-[#d6ddd7] px-4 text-sm outline-none focus:border-ivar-dark" />
                   <input placeholder="Mobile Number*" value={mobile} onChange={(e) => setMobile(e.target.value)} className="h-11 rounded-xl border border-[#d6ddd7] px-4 text-sm outline-none focus:border-ivar-dark" />
                   <input placeholder="Email Address*" className="col-span-2 h-11 rounded-xl border border-[#d6ddd7] px-4 text-sm outline-none focus:border-ivar-dark" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -287,7 +287,7 @@ export default function PlansPage() {
             {step === 7 && (
               <>
                 <h2 className="font-serif text-xl font-medium">7. Delivery & Distance</h2>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <input placeholder="House / Flat No.*" value={address.flatNo} onChange={(e) => setAddress({ ...address, flatNo: e.target.value })} className="h-11 rounded-xl border border-[#d6ddd7] px-4 text-sm outline-none focus:border-ivar-dark" />
                   <input placeholder="Floor No. (optional)" value={address.floorNo} onChange={(e) => setAddress({ ...address, floorNo: e.target.value })} className="h-11 rounded-xl border border-[#d6ddd7] px-4 text-sm outline-none focus:border-ivar-dark" />
                   <input className="col-span-2 h-11 rounded-xl border border-[#d6ddd7] px-4 text-sm outline-none focus:border-ivar-dark" placeholder="Building / Apartment (optional)" value={address.building} onChange={(e) => setAddress({ ...address, building: e.target.value })} />

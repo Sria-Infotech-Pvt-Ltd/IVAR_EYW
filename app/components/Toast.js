@@ -3,11 +3,11 @@
 import { useCart } from "../context/CartContext";
 
 export default function Toast() {
-  const { toast } = useCart();
+  const { toast, count } = useCart();
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-[60] transition-all duration-300 ${
+      className={`fixed ${count > 0 ? "bottom-[128px]" : "bottom-[76px]"} md:bottom-6 right-6 z-[60] transition-all duration-300 ${
         toast ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
       }`}
     >

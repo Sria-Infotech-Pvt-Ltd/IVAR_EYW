@@ -13,10 +13,12 @@ export default function RouteTransitionOverlay() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const prevPathname = useRef(pathname);
+  const pendingShowTimer = useRef(null);
 
   useEffect(() => {
     if (prevPathname.current !== pathname) {
       prevPathname.current = pathname;
+      clearTimeout(pendingShowTimer.current);
       setVisible(false);
     }
   }, [pathname]);
@@ -38,10 +40,17 @@ export default function RouteTransitionOverlay() {
       if (url.origin !== window.location.origin) return;
       if (url.pathname === window.location.pathname) return;
 
-      setVisible(true);
+      // Only show the loader for navigations that actually take a moment —
+      // showing it unconditionally flashed a full white screen on every
+      // click, even instant ones, which looked like navigation was broken.
+      const t = setTimeout(() => setVisible(true), 200);
+      pendingShowTimer.current = t;
     }
     document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("click", onClick);
+      clearTimeout(pendingShowTimer.current);
+    };
   }, []);
 
   useEffect(() => {

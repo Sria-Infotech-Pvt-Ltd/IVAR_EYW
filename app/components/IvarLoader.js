@@ -26,7 +26,7 @@ export default function IvarLoader({ label = "Loading", size = "md", fullScreen 
 
   if (fullScreen) {
     return (
-      <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white">
+      <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white pointer-events-none">
         {content}
       </div>
     );
