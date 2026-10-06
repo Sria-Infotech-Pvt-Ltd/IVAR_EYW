@@ -8,16 +8,17 @@ import { products as allProducts } from "../data/products";
 import { buildWhatsAppLink } from "../lib/whatsapp";
 import PageHeader from "../components/PageHeader";
 import IvarLoader from "../components/IvarLoader";
+import LineIcon from "../components/LineIcon";
 import { fetchWithTimeout } from "../lib/fetchWithTimeout";
 
 const TOTAL_STEPS = 6;
 
 const LIFESTYLES = [
-  { id: "student", label: "Student", icon: "🎓" },
-  { id: "working-pro", label: "Working Pro", icon: "💼" },
-  { id: "business", label: "Business", icon: "🏢" },
-  { id: "homemaker", label: "Homemaker", icon: "🏠" },
-  { id: "athlete", label: "Athlete", icon: "🏃" },
+  { id: "student", label: "Student" },
+  { id: "working-pro", label: "Working Pro" },
+  { id: "business", label: "Business" },
+  { id: "homemaker", label: "Homemaker" },
+  { id: "athlete", label: "Athlete" },
 ];
 
 const ACTIVITY_LEVELS = [
@@ -203,8 +204,9 @@ export default function PlannerPage() {
             <p className="text-xs font-bold tracking-wide text-[#6b8276] uppercase mb-3">AI Insights</p>
             <ul className="space-y-2 text-sm">
               {report.insights.map((insight, i) => (
-                <li key={i} className="flex gap-2">
-                  <span>💡</span> {insight}
+                <li key={i} className="flex gap-2.5">
+                  <LineIcon name="leaf" size={15} stroke={1.8} className="text-ivar-forest shrink-0 mt-0.5" />
+                  {insight}
                 </li>
               ))}
             </ul>
@@ -311,8 +313,7 @@ export default function PlannerPage() {
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                   {LIFESTYLES.map((l) => (
                     <Tile key={l.id} active={form.lifestyle === l.id} onClick={() => update({ lifestyle: l.id })}>
-                      <span className="text-xl">{l.icon}</span>
-                      <p className="text-[11px] mt-1">{l.label}</p>
+                      <p className="text-sm font-medium text-center">{l.label}</p>
                     </Tile>
                   ))}
                 </div>
@@ -442,10 +443,11 @@ export default function PlannerPage() {
                   {error && <p className="text-sm text-[#E85D3A]">{error}</p>}
                   <button
                     onClick={handleGenerate}
-                    className="w-full rounded-full px-6 py-4 font-semibold text-[13px] tracking-wide bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green cursor-pointer"
+                    className="group w-full inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-4 font-semibold text-[13px] tracking-wide bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green cursor-pointer"
                     suppressHydrationWarning
                   >
-                    ✨ Generate My Report
+                    Generate My Report
+                    <LineIcon name="arrow" size={16} stroke={2} className="transition-transform group-hover:translate-x-1" />
                   </button>
                 </>
               )}

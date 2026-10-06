@@ -1,14 +1,18 @@
 import IvarHero from "./components/IvarHero";
 import WhatIvarDoes from "./components/WhatIvarDoes";
+import QuickActionsBand from "./components/QuickActionsBand";
 import SignatureFeature from "./components/SignatureFeature";
 import IndiaJourneyCircles from "./components/IndiaJourneyCircles";
 import HomeCategoryCards from "./components/HomeCategoryCards";
 import FeaturedCarousel from "./components/FeaturedCarousel";
+import ComparisonSection from "./components/ComparisonSection";
 import MakhanaStory from "./components/MakhanaStory";
 import IngredientLibrary from "./components/IngredientLibrary";
 import IngredientToProduct from "./components/IngredientToProduct";
 import FoodInnovationGrid from "./components/FoodInnovationGrid";
+import HowItWorksSteps from "./components/HowItWorksSteps";
 import ImageTextSection from "./components/ImageTextSection";
+import GoldCTABand from "./components/GoldCTABand";
 import DarkCTA from "./components/DarkCTA";
 import ContactCTABand from "./components/ContactCTABand";
 
@@ -17,14 +21,17 @@ export default function Home() {
     <main id="home">
       <IvarHero />
       <WhatIvarDoes />
+      <QuickActionsBand />
       <SignatureFeature />
       <IndiaJourneyCircles />
       <HomeCategoryCards />
       <FeaturedCarousel />
+      <ComparisonSection />
       <MakhanaStory />
       <IngredientLibrary />
       <IngredientToProduct />
       <FoodInnovationGrid />
+      <HowItWorksSteps />
       <ImageTextSection
         img="/assets/hero-veg-fruit-table.jpg"
         imgAlt="Ivar packaging"
@@ -35,6 +42,7 @@ export default function Home() {
         cta="Explore Packaging"
         ctaHref="/packaging"
       />
+      <GoldCTABand />
       <DarkCTA
         img="/assets/hero-grain-bowl.jpg"
         eyebrow="Our Global Vision"

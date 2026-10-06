@@ -138,7 +138,7 @@ export default function PlansPage() {
   return (
     <main>
       <PageHeader
-        eyebrow="🌱 Subscribe to Ivar"
+        eyebrow="Subscribe to Ivar"
         title="Build the perfect meal plan for you."
         subtitle="Pick your meals, choose delivery dates and pause anytime. Save up to 15% with weekly and monthly plans."
         img="/assets/hero-couple-cooking.jpg"

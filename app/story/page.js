@@ -80,6 +80,18 @@ export default function StoryPage() {
         bg="bg-ivar-cream"
       />
 
+      <ImageTextSection
+        img="/assets/ivar-workforce.jpeg"
+        imgAlt="Ivar Workforce — chefs, packaging staff and delivery partners"
+        imageSide="right"
+        eyebrow="Ivar Workforce"
+        title="People Power For a Healthier Tomorrow."
+        text="Good food needs good people. Beyond what we make, Ivar connects trained, verified talent — chefs, food manufacturing staff, packaging teams, delivery partners and more — with real opportunities across the food and service industry."
+        cta="Get in Touch"
+        ctaHref="/contact?type=workforce"
+        bg="bg-white"
+      />
+
       <section className="bg-ivar-cream py-16 md:py-24">
         <div className="max-w-[1320px] mx-auto px-[6vw] grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
           <RevealOnScroll>
