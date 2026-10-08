@@ -210,7 +210,7 @@ export default function PlansPage() {
                   </button>
                 </div>
                 {duration === "monthly" && (
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {[20, 22, 24, 26].map((d) => (
                       <Chip key={d} active={monthlyDays === d} onClick={() => setMonthlyDays(d)}>{d} days</Chip>
                     ))}
@@ -246,7 +246,7 @@ export default function PlansPage() {
               <>
                 <h2 className="font-serif text-xl font-medium">5. Choose Bowls</h2>
                 <p className="text-xs text-[#8a938c] -mt-3">Quick preset — you can edit any day after</p>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {["all", "veg", "nonveg"].map((f) => (
                     <Chip key={f} active={dietFilter === f} onClick={() => setDietFilter(f)}>{f.toUpperCase()}</Chip>
                   ))}
@@ -275,7 +275,7 @@ export default function PlansPage() {
             {step === 6 && (
               <>
                 <h2 className="font-serif text-xl font-medium">6. Number of People</h2>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {[1, 2, 3, 4, 5].map((n) => (
                     <Chip key={n} active={people === n} onClick={() => setPeople(n)}>{n === 5 ? "5+" : n}</Chip>
                   ))}
@@ -300,7 +300,7 @@ export default function PlansPage() {
                 </div>
 
                 <p className="text-sm font-medium mt-4 mb-2">Delivery Preference</p>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {[1, 2].map((t) => (
                     <button key={t} onClick={() => setTripsPerDay(t)} className={`px-4 py-2.5 rounded-full text-sm font-semibold border cursor-pointer ${tripsPerDay === t ? "bg-ivar-dark text-white border-ivar-dark" : "border-[#d6ddd7]"}`} suppressHydrationWarning>
                       {t} trip{t > 1 ? "s" : ""}/day

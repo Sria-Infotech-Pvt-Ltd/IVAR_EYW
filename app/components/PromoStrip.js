@@ -12,9 +12,9 @@ const items = [
     desc: "Millets, whole grains and everyday nutrition inspired by nature and modern lifestyles.",
   },
   {
-    icon: "🧘",
-    title: "Everyday Wellness",
-    desc: "Food, movement and mindful living brought together under one simple idea.",
+    icon: "🍽️",
+    title: "Everyday Goodness",
+    desc: "Good food brought into everyday life under one simple idea.",
   },
 ];
 

@@ -13,7 +13,7 @@ export const ingredients = [
     benefits: [
       { title: "Rich in Vitamin C", icon: "leaf" },
       { title: "Naturally Occurring Antioxidants", icon: "shield" },
-      { title: "Traditional Wellness Use", icon: "heart" },
+      { title: "Traditional Everyday Use", icon: "heart" },
       { title: "Versatile in the Kitchen", icon: "flask" },
     ],
     products: [

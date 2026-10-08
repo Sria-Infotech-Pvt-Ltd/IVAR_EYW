@@ -11,7 +11,6 @@ import FloatingMiniCart from "./components/FloatingMiniCart";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AskIvarWidget from "./components/AskIvarWidget";
 import NetworkStatus from "./components/NetworkStatus";
-import RouteTransitionOverlay from "./components/RouteTransitionOverlay";
 
 const displaySerif = DM_Serif_Display({
   subsets: ["latin"],
@@ -70,11 +69,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${displaySerif.variable} ${inter.variable} ${caveat.variable}`}>
-      <body className="bg-[#F2F2F0] text-[#172019] pb-16 md:pb-0">
+      <body className="bg-ivar-cream text-[#172019] pb-16 md:pb-0">
         <CartProvider>
           <ProductModalProvider>
             <NetworkStatus />
-            <RouteTransitionOverlay />
             <SiteChrome>{children}</SiteChrome>
             <CartDrawer />
             <Toast />

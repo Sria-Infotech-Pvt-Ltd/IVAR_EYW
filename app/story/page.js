@@ -86,9 +86,9 @@ export default function StoryPage() {
         imageSide="right"
         eyebrow="Ivar Workforce"
         title="People Power For a Healthier Tomorrow."
-        text="Good food needs good people. Beyond what we make, Ivar connects trained, verified talent — chefs, food manufacturing staff, packaging teams, delivery partners and more — with real opportunities across the food and service industry."
-        cta="Get in Touch"
-        ctaHref="/contact?type=workforce"
+        text="Good food needs good people. Ivar Workforce helps restaurants, cloud kitchens and food businesses hire trained, verified chefs, packaging teams, delivery partners and more."
+        cta="Explore Ivar Workforce"
+        ctaHref="/workforce"
         bg="bg-white"
       />
 
@@ -120,7 +120,7 @@ export default function StoryPage() {
         eyebrow="Quality & Sustainability"
         title="Trusted Food, Responsibly Made."
         text="We focus on eco-friendly materials, responsible sourcing and strict quality checks at every stage — keeping food safe and fresh while reducing our footprint."
-        cta="Explore Packaging"
+        cta="Packaging — Coming Soon"
         ctaHref="/packaging"
         bg="bg-ivar-cream"
       />

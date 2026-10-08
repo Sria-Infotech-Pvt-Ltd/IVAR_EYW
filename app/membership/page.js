@@ -51,7 +51,7 @@ const TIERS = [
     duration: "Monthly",
     discount: 15,
     dailyPrice: breakfastAvg + lunchAvg + dinnerAvg,
-    features: ["Everything in Family", "Priority delivery time slots", "Dedicated WhatsApp support", "Wellness shot add-on available"],
+    features: ["Everything in Family", "Priority delivery time slots", "Dedicated WhatsApp support", "Daily shot add-on available"],
   },
 ];
 
@@ -62,7 +62,7 @@ const COMPARE_ROWS = [
   { label: "Discount", values: ["10%", "15%", "15%"] },
   { label: "Custom delivery calendar", values: [false, true, true] },
   { label: "Priority delivery slots", values: [false, false, true] },
-  { label: "Wellness shot add-on", values: [false, false, true] },
+  { label: "Daily shot add-on", values: [false, false, true] },
 ];
 
 const INCLUDES = [

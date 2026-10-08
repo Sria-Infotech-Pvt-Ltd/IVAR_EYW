@@ -209,7 +209,7 @@ export default function InnovationPage() {
               Packaging protects freshness, enhances convenience and brings great food to more people.
             </p>
             <Link href="/packaging" className="inline-flex items-center gap-2 bg-ivar-forest text-white font-semibold text-sm rounded-full px-6 py-3 hover:bg-ivar-forestDeep transition-colors mb-8">
-              Explore Packaging Solutions <LineIcon name="arrow" size={16} stroke={2} />
+              Packaging — Coming Soon <LineIcon name="arrow" size={16} stroke={2} />
             </Link>
             <div className="relative aspect-[16/7] rounded-2xl overflow-hidden mb-6">
               {/* eslint-disable-next-line @next/next/no-img-element */}

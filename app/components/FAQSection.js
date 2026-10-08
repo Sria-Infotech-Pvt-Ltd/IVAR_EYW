@@ -13,8 +13,8 @@ const faqs = [
     a: "Items you add are saved in your browser, so you can keep shopping and come back to your cart later.",
   },
   {
-    q: "Do you offer wholesale or corporate wellness programs?",
-    a: "Yes — use the Wholesale, Corporate Wellness or Partnerships links in the footer to get in touch.",
+    q: "Do you offer wholesale or corporate meal programs?",
+    a: "Yes — use the Wholesale, Corporate Orders or Partnerships links in the footer to get in touch.",
   },
   {
     q: "Is this the final version of the Ivar website?",

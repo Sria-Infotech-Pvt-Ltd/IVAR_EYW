@@ -13,7 +13,7 @@ const ACTIONS = [
   {
     href: "/planner",
     icon: "scope",
-    title: "Wellness Planner",
+    title: "Nutrition Planner",
     text: "A free nutrition check-in with daily targets and picks for you.",
     cta: "Get my plan",
   },

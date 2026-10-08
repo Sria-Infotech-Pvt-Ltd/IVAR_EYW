@@ -159,14 +159,14 @@ export default function PlannerPage() {
   }
 
   const waMessage = report
-    ? `Hi Ivar 🌿 I just generated a wellness plan (goal: ${form.goal}). Target: ${report.targetKcal}kcal/day, ${report.macros.proteinG}g protein. Recommended for me: ${report.recommendations.map((r) => r.name).join(", ")}.`
+    ? `Hi Ivar 🌿 I just generated a nutrition plan (goal: ${form.goal}). Target: ${report.targetKcal}kcal/day, ${report.macros.proteinG}g protein. Recommended for me: ${report.recommendations.map((r) => r.name).join(", ")}.`
     : "";
 
   if (report) {
     return (
       <main>
         <PageHeader
-          title="Ivar Wellness Planner"
+          title="Ivar Nutrition Planner"
           subtitle="Your personalised plan is ready."
           img="/assets/hero-veg-spices.jpg"
         />
@@ -266,7 +266,7 @@ export default function PlannerPage() {
   return (
     <main>
       <PageHeader
-        title="Ivar Wellness Planner"
+        title="Ivar Nutrition Planner"
         subtitle="A quick, free nutrition check-in — get your daily targets and a few Ivar picks to match."
         img="/assets/hero-veg-spices.jpg"
       />
@@ -290,9 +290,9 @@ export default function PlannerPage() {
               </div>
               <textarea placeholder="Delivery Address*" rows={2} value={form.deliveryAddress} onChange={(e) => update({ deliveryAddress: e.target.value })} className="w-full rounded-xl border border-[#d6ddd7] px-4 py-3 text-sm outline-none focus:border-ivar-dark resize-none" />
               <textarea placeholder="Delivery Notes (optional)" rows={2} value={form.deliveryNotes} onChange={(e) => update({ deliveryNotes: e.target.value })} className="w-full rounded-xl border border-[#d6ddd7] px-4 py-3 text-sm outline-none focus:border-ivar-dark resize-none" />
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input type="number" placeholder="Age" value={form.age} onChange={(e) => update({ age: Number(e.target.value) })} className="h-11 rounded-xl border border-[#d6ddd7] px-4 text-sm outline-none focus:border-ivar-dark" />
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {["male", "female", "other"].map((g) => (
                     <Chip key={g} active={form.gender === g} onClick={() => update({ gender: g })}>
                       {g.charAt(0).toUpperCase() + g.slice(1)}
@@ -352,7 +352,7 @@ export default function PlannerPage() {
           {step === 4 && (
             <>
               <h2 className="font-serif text-xl font-medium">Food preference</h2>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {FOOD_PREFS.map((f) => (
                   <Tile key={f.id} active={form.foodPreference === f.id} onClick={() => update({ foodPreference: f.id })}>
                     <p className="text-sm font-medium">{f.label}</p>
@@ -420,19 +420,19 @@ export default function PlannerPage() {
                     ))}
                   </div>
                   <p className="text-sm font-medium mt-4 mb-2">Plan duration</p>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <Chip active={form.planDuration === "weekly"} onClick={() => update({ planDuration: "weekly" })}>Weekly · 5 days</Chip>
                     <Chip active={form.planDuration === "monthly"} onClick={() => update({ planDuration: "monthly" })}>Monthly</Chip>
                   </div>
                   {form.planDuration === "monthly" && (
-                    <div className="flex gap-2 mt-2">
+                    <div className="flex flex-wrap gap-2 mt-2">
                       {[20, 22, 24, 26].map((d) => (
                         <Chip key={d} active={form.monthlyDeliveryDays === d} onClick={() => update({ monthlyDeliveryDays: d })}>{d} days</Chip>
                       ))}
                     </div>
                   )}
                   <p className="text-sm font-medium mt-4 mb-2">Number of people</p>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {[1, 2, 3, 4].map((n) => (
                       <Chip key={n} active={form.numberOfPeople === n} onClick={() => update({ numberOfPeople: n })}>{n === 4 ? "4+" : n}</Chip>
                     ))}

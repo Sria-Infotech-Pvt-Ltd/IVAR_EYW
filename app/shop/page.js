@@ -4,10 +4,18 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { products } from "../data/products";
 import BowlCard from "../components/BowlCard";
-import PageHeader from "../components/PageHeader";
+import LineIcon from "../components/LineIcon";
+import RevealOnScroll from "../components/RevealOnScroll";
 
 const eat = products.filter((p) => p.group === "Eat");
 const CATEGORIES = ["All", ...Array.from(new Set(eat.map((p) => p.cat)))];
+
+const FEATURES = [
+  { icon: "leaf", label: "Natural Ingredients" },
+  { icon: "shield", label: "Hygienic & Safe" },
+  { icon: "truck", label: "Delivered Fresh" },
+  { icon: "scope", label: "No Added Sugar" },
+];
 
 const hay = (p) => `${p.name} ${p.desc} ${(p.ingredients || []).join(" ")}`.toLowerCase();
 const INGREDIENTS = [
@@ -26,8 +34,8 @@ function Tag({ active, onClick, children }) {
   return (
     <button
       onClick={onClick}
-      className={`shrink-0 px-4 py-2 rounded-3xl text-xs font-semibold uppercase tracking-wide transition-colors cursor-pointer ${
-        active ? "bg-ivar-dark text-white" : "bg-[#F0F0F0] text-[#4B5563] hover:bg-ivar-mint"
+      className={`shrink-0 px-4 py-2 rounded-3xl text-xs font-semibold uppercase tracking-wide transition-colors cursor-pointer border ${
+        active ? "bg-ivar-forest text-white border-ivar-forest" : "bg-white text-[#4B5563] border-[#ece8da] hover:border-ivar-forest/40"
       }`}
       suppressHydrationWarning
     >
@@ -76,14 +84,26 @@ function ShopContent() {
         </Link>
       </div>
 
-      <div className="sticky top-[76px] z-20 bg-ivar-cream/95 backdrop-blur -mx-[6vw] px-[6vw] py-3 mb-6">
-        <div className="flex gap-2 overflow-x-auto no-scrollbar">
+      <div className="sticky top-[68px] md:top-[72px] z-20 bg-white/95 backdrop-blur border-b border-[#ece8da] -mx-[4vw] px-[4vw] py-3 mb-6">
+        <div className="flex items-center gap-2.5 overflow-x-auto no-scrollbar">
+          <label className="relative shrink-0 w-[180px] sm:w-[220px]">
+            <span className="sr-only">Search the menu</span>
+            <LineIcon name="search" size={15} stroke={2} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#9a9f9a]" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search dishes..."
+              className="w-full bg-[#F7F6F2] border border-[#ece8da] rounded-full pl-9 pr-4 py-2.5 text-[13px] focus:border-ivar-forest/40"
+              suppressHydrationWarning
+            />
+          </label>
+          <span className="shrink-0 w-px h-6 bg-[#ece8da]" aria-hidden="true" />
           {CATEGORIES.map((c) => (
             <button
               key={c}
               onClick={() => setCat(c)}
-              className={`shrink-0 px-5 py-2.5 rounded-3xl text-sm font-semibold uppercase tracking-wide transition-colors cursor-pointer ${
-                cat === c ? "bg-ivar-dark text-white" : "text-[#4B5563] hover:text-ivar-dark"
+              className={`shrink-0 px-5 py-2.5 rounded-full text-[13px] font-semibold transition-colors cursor-pointer ${
+                cat === c ? "bg-ivar-forest text-white" : "bg-[#F7F6F2] text-[#4B5563] hover:bg-ivar-cream"
               }`}
               suppressHydrationWarning
             >
@@ -92,21 +112,6 @@ function ShopContent() {
           ))}
         </div>
       </div>
-
-      <label className="relative block mb-4">
-        <span className="sr-only">Search the menu</span>
-        <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9CA3AF]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="7" />
-          <path d="M20 20l-3.5-3.5" />
-        </svg>
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search bowls, ingredients, snacks..."
-          className="w-full bg-white border border-[#D0D8DC] rounded-lg pl-11 pr-4 py-3 text-base"
-          suppressHydrationWarning
-        />
-      </label>
 
       <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2">
         {INGREDIENTS.map((t) => (
@@ -122,10 +127,10 @@ function ShopContent() {
       </div>
 
       <div className="mt-8 mb-6">
-        <h2 className="font-bold text-2xl uppercase text-[#1A1A1A]">{cat === "All" ? "Everything" : cat}</h2>
-        <p className="text-sm text-[#4B5563] mt-1">
+        <h2 className="font-display text-[26px] md:text-[30px] text-ivar-ink">{cat === "All" ? "Everything" : cat}</h2>
+        <p className="text-[13.5px] text-ivar-muted mt-1.5">
           {list.length} items · Made fresh ·{" "}
-          <Link href="/plans" className="text-ivar-dark underline underline-offset-4">
+          <Link href="/plans" className="text-ivar-forest font-medium underline underline-offset-4">
             Subscribe &amp; Save up to 15% on meal plans.
           </Link>
         </p>
@@ -134,7 +139,7 @@ function ShopContent() {
       {list.length === 0 ? (
         <p className="text-[#4B5563] py-16 text-center">Nothing matches — try clearing a filter.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {list.map((p) => (
             <BowlCard key={p.id} product={p} tag={(p.nutrition?.proteinG ?? 0) >= 30 ? "High Protein" : undefined} />
           ))}
@@ -147,13 +152,37 @@ function ShopContent() {
 export default function ShopPage() {
   return (
     <main>
-      <PageHeader
-        eyebrow="Ivar"
-        title="The Menu"
-        subtitle="Breakfast to bowls, snacks to teas — all in one place. Fresh, high protein, made daily."
-        img="/assets/products/eat/makhana-crunch.jpg"
-      />
-      <section className="max-w-[1320px] mx-auto px-[6vw] pb-14 md:pb-20">
+      <section className="bg-white overflow-hidden">
+        <div className="max-w-[1500px] mx-auto px-[4vw] py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <RevealOnScroll>
+            <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-5">Our Full Menu</p>
+            <h1 className="font-display text-editorial-hero leading-[1.05] text-ivar-ink mb-5">
+              Goodness in <span className="italic text-ivar-green">every bite.</span>
+            </h1>
+            <p className="text-editorial-body text-ivar-muted max-w-[460px] mb-8">
+              Breakfast to bowls, snacks to teas — all made fresh, high in protein and ready when you are.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-[540px]">
+              {FEATURES.map((f) => (
+                <div key={f.label} className="flex items-center gap-2.5">
+                  <span className="size-9 rounded-full border border-ivar-forest/25 text-ivar-forest flex items-center justify-center shrink-0">
+                    <LineIcon name={f.icon} size={16} stroke={1.6} />
+                  </span>
+                  <span className="text-[12px] text-ivar-muted leading-tight">{f.label}</span>
+                </div>
+              ))}
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll y={0} delay={0.1} className="relative aspect-[4/5] lg:aspect-[4/4.5] overflow-hidden rounded-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {/* TODO: this photo's packaging still prints the old "EAT | YOGA | WELLNESS" tagline — swap once new photography is ready */}
+            <img src="/assets/products/eat/makhana-crunch.jpg" alt="The Ivar menu" className="w-full h-full object-cover" />
+          </RevealOnScroll>
+        </div>
+      </section>
+
+      <section className="max-w-[1500px] mx-auto px-[4vw] pb-14 md:pb-20">
         <ShopContent />
       </section>
     </main>

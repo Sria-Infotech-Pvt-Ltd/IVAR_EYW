@@ -30,7 +30,7 @@ export const FOOD_CATEGORIES = [
     tagline: "Sip on Something Better.",
     text: "Teas, shots and everyday drinks made with natural ingredients.",
     img: "/assets/products/eat/turmeric-latte.jpg",
-    cats: ["Teas & Beverages", "Wellness Shots"],
+    cats: ["Teas & Beverages", "Daily Shots"],
   },
   {
     slug: "ready-to-cook",

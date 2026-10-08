@@ -9,19 +9,19 @@ import { HEALTH_CATEGORIES, productsForHealthCategory } from "../data/healthCate
 
 export const metadata = {
   title: "Ivar Health — Ivar™",
-  description: "Wellness shots, yoga essentials and traditional therapies for a balanced everyday life.",
+  description: "Daily shots and active nutrition essentials for a balanced everyday life.",
   alternates: { canonical: "/health" },
 };
 
 const PILLARS = [
   { title: "Traditional Practice", icon: "leaf" },
   { title: "Mindful Living", icon: "heart" },
-  { title: "Everyday Wellness", icon: "globe" },
+  { title: "Everyday Balance", icon: "globe" },
 ];
 
 export default function HealthPage() {
-  const shots = HEALTH_CATEGORIES.find((c) => c.slug === "wellness-shots");
-  const shotsProducts = productsForHealthCategory("wellness-shots");
+  const shots = HEALTH_CATEGORIES.find((c) => c.slug === "daily-shots");
+  const shotsProducts = productsForHealthCategory("daily-shots");
 
   return (
     <main>
@@ -33,7 +33,7 @@ export default function HealthPage() {
               Balanced Living, <span className="italic text-ivar-green">The Traditional Way.</span>
             </h1>
             <p className="text-editorial-body text-ivar-muted max-w-[440px] mb-8">
-              Wellness shots, yoga essentials and traditional therapies — rooted in the same Indian traditions
+              Daily shots and active nutrition essentials — rooted in the same Indian traditions
               behind everything Ivar makes.
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
@@ -59,6 +59,7 @@ export default function HealthPage() {
 
           <RevealOnScroll y={0} delay={0.1} className="relative aspect-[4/5] lg:aspect-[4/4.5] overflow-hidden rounded-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
+            {/* TODO: this photo's packaging still prints the old "EAT | YOGA | WELLNESS" tagline — swap once new photography is ready */}
             <img src="/assets/products/eat/immunity-shield.jpg" alt="Ivar Health" className="w-full h-full object-cover" />
           </RevealOnScroll>
         </div>
@@ -76,22 +77,22 @@ export default function HealthPage() {
       <StatsBand
         bg="bg-white"
         stats={[
-          { value: "8", label: "Wellness Categories" },
+          { value: "2", label: "Health Categories" },
           { value: "100%", label: "Traditional Practice" },
           { value: "0", label: "Synthetic Additives" },
-          { value: "Daily", label: "Wellness Rituals" },
+          { value: "Daily", label: "Healthy Rituals" },
         ]}
       />
 
       {shots && shotsProducts.length > 0 && (
-        <FeaturedRail eyebrow="Featured" title="Wellness Shots" viewAllHref="/health/wellness-shots" products={shotsProducts} />
+        <FeaturedRail eyebrow="Featured" title="Daily Shots" viewAllHref="/health/daily-shots" products={shotsProducts} />
       )}
 
       <DarkCTA
         img="/assets/hero-veg-fruit-table.jpg"
         eyebrow="Ivar Health"
-        title="Wellness, Built Into Everyday Life."
-        text="From a morning wellness shot to an evening practice — small rituals that add up to a healthier routine."
+        title="Balance, Built Into Everyday Life."
+        text="From a morning shot to an evening routine — small rituals that add up to a healthier everyday."
         cta="Explore Ivar Essentials"
         ctaHref="/foods"
         align="center"

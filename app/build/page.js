@@ -119,7 +119,7 @@ export default function BuildPage() {
   const proteinBowls = eatByCat(["Protein Bowls"]);
   const snacks = eatByCat(["Nuts, Seeds & Snacks"]);
   const energyBites = eatByCat(["Energy Bites & Cookies"]);
-  const wellnessShots = eatByCat(["Wellness Shots"]);
+  const dailyShots = eatByCat(["Daily Shots"]);
   const beverages = eatByCat(["Teas & Beverages"]);
   const premiumAddons = eatByCat(["Cooking Essentials"]);
 
@@ -128,7 +128,7 @@ export default function BuildPage() {
   }
 
   const selectedBase = bases.find((p) => p.id === baseId);
-  const allExtraItems = [...proteinPool, ...proteinBowls, ...snacks, ...energyBites, ...wellnessShots, ...beverages, ...premiumAddons];
+  const allExtraItems = [...proteinPool, ...proteinBowls, ...snacks, ...energyBites, ...dailyShots, ...beverages, ...premiumAddons];
   const selectedExtras = allExtraItems.filter((p) => qty[p.id] > 0).map((p) => ({ product: p, qty: qty[p.id] }));
 
   const macros = useMemo(() => {
@@ -179,7 +179,7 @@ export default function BuildPage() {
       <section className="max-w-[1300px] mx-auto px-[6vw] py-[70px] md:py-[90px] grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12">
         <div>
           <Step n={1} title="Choose Meal">
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {MEALS.map((m) => (
                 <button
                   key={m.id}
@@ -196,7 +196,7 @@ export default function BuildPage() {
           </Step>
 
           <Step n={2} title="Choose Preference">
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {PREFERENCES.map((p) => (
                 <button
                   key={p.id}
@@ -253,8 +253,8 @@ export default function BuildPage() {
             <QtyPicker items={energyBites} qty={qty} onChange={updateQty} />
           </Step>
 
-          <Step n={8} title="Wellness Shots">
-            <QtyPicker items={wellnessShots} qty={qty} onChange={updateQty} />
+          <Step n={8} title="Daily Shots">
+            <QtyPicker items={dailyShots} qty={qty} onChange={updateQty} />
           </Step>
 
           <Step n={9} title="Teas & Beverages">

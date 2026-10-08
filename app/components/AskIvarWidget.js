@@ -78,7 +78,7 @@ export default function AskIvarWidget() {
             <span className="text-2xl">🌿</span>
             <div className="flex-1">
               <p className="font-serif font-semibold text-sm">Ask Ivar</p>
-              <p className="text-xs opacity-80">Your food & wellness guide</p>
+              <p className="text-xs opacity-80">Your food guide</p>
             </div>
             <button onClick={() => setOpen(false)} aria-label="Close chat" suppressHydrationWarning>
               ×

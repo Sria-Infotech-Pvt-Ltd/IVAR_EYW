@@ -8,11 +8,7 @@ import { money } from "../data/products";
 
 const DETAILS_LABEL = {
   Eat: "Ingredients",
-  Yoga: "What's Included",
-  Wellness: "What's Included",
 };
-
-const COMING_SOON_GROUPS = ["Yoga", "Wellness"];
 
 export default function ProductModal() {
   const { product, closeProduct } = useProductModal();
@@ -52,7 +48,6 @@ export default function ProductModal() {
   }
 
   const label = DETAILS_LABEL[product.group] || "Details";
-  const comingSoon = COMING_SOON_GROUPS.includes(product.group);
 
   return (
     <div
@@ -89,16 +84,9 @@ export default function ProductModal() {
               {product.name}
             </h2>
             <div className="flex items-center gap-3 mb-3">
-              {!comingSoon && (
-                <p className="font-serif text-xl font-medium text-ivar-dark m-0">
-                  {money(product.price)}
-                </p>
-              )}
-              {comingSoon && (
-                <span className="text-[9px] font-bold tracking-[0.1em] uppercase text-[#7d8983] bg-[#f4f6f1] border border-[#d6ddd7] rounded-full px-2.5 py-1">
-                  Coming Soon
-                </span>
-              )}
+              <p className="font-serif text-xl font-medium text-ivar-dark m-0">
+                {money(product.price)}
+              </p>
             </div>
             <p className="text-[#68766f] leading-[1.7] font-light text-sm">
               {product.desc}
@@ -122,48 +110,41 @@ export default function ProductModal() {
               </div>
             )}
 
-            {comingSoon ? (
-              <p className="text-xs text-[#8a938c] mt-6 bg-[#f4f6f1] border border-[#e2e7de] rounded-xl px-4 py-3 max-w-max">
-                This {product.group.toLowerCase()} offering isn&apos;t
-                available to book yet — check back soon.
-              </p>
-            ) : (
-              <div className="flex items-center gap-4 mt-6 flex-wrap">
-                <div className="flex items-center border border-[#d6ddd7] rounded-full overflow-hidden">
-                  <button
-                    className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
-                    onClick={() => setQty((q) => Math.max(1, q - 1))}
-                    suppressHydrationWarning
-                  >
-                    −
-                  </button>
-                  <span className="w-9 text-center" suppressHydrationWarning>
-                    {qty}
-                  </span>
-                  <button
-                    className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
-                    onClick={() => setQty((q) => q + 1)}
-                    suppressHydrationWarning
-                  >
-                    +
-                  </button>
-                </div>
+            <div className="flex items-center gap-4 mt-6 flex-wrap">
+              <div className="flex items-center border border-[#d6ddd7] rounded-full overflow-hidden">
                 <button
-                  className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-transparent bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
-                  onClick={handleAdd}
+                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
+                  onClick={() => setQty((q) => Math.max(1, q - 1))}
                   suppressHydrationWarning
                 >
-                  {added ? "Added ✓" : "Add to cart"}
+                  −
                 </button>
+                <span className="w-9 text-center" suppressHydrationWarning>
+                  {qty}
+                </span>
                 <button
-                  className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-ivar-dark text-ivar-dark transition-colors duration-200 hover:bg-ivar-dark hover:text-white"
-                  onClick={handleBuyNow}
+                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
+                  onClick={() => setQty((q) => q + 1)}
                   suppressHydrationWarning
                 >
-                  Buy Now
+                  +
                 </button>
               </div>
-            )}
+              <button
+                className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-transparent bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
+                onClick={handleAdd}
+                suppressHydrationWarning
+              >
+                {added ? "Added ✓" : "Add to cart"}
+              </button>
+              <button
+                className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-ivar-dark text-ivar-dark transition-colors duration-200 hover:bg-ivar-dark hover:text-white"
+                onClick={handleBuyNow}
+                suppressHydrationWarning
+              >
+                Buy Now
+              </button>
+            </div>
           </div>
         </div>
       </div>

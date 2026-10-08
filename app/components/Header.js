@@ -6,10 +6,15 @@ import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCart } from "../context/CartContext";
 import LineIcon from "./LineIcon";
+import { WORKFORCE_ROLES } from "../data/workforceRoles";
 
 const navLinks = [
-  { href: "/foods", label: "Ivar Essentials" },
-  { href: "/health", label: "Ivar Health" },
+  {
+    href: "/workforce",
+    label: "Workforce",
+    children: WORKFORCE_ROLES.map((r) => ({ href: `/workforce/${r.slug}`, label: r.title })),
+  },
+  { href: "/export", label: "Export" },
   { href: "/membership", label: "Membership" },
   { href: "/ingredients", label: "Ingredients" },
   { href: "/innovation", label: "Innovation" },
@@ -30,6 +35,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [mobileSubOpen, setMobileSubOpen] = useState(null);
 
   useEffect(() => {
     function onScroll() {
@@ -79,33 +85,64 @@ export default function Header() {
           <img src="/assets/logo-wordmark.png" alt="Ivar" className="w-full h-full object-contain object-left" />
         </Link>
 
-        <nav className="hidden xl:flex justify-center gap-6 2xl:gap-9 text-[13px] font-medium whitespace-nowrap">
+        <nav className="hidden 2xl:flex justify-center gap-3.5 2xl:gap-5 text-[12.5px] font-medium whitespace-nowrap">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
-              <Link key={link.label} href={link.href} className="relative py-2">
-                <span className={`transition-colors duration-200 ${active ? "text-ivar-ink font-semibold" : "text-ivar-ink/70 hover:text-ivar-ink"}`}>
-                  {link.label}
-                </span>
-                {active && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute left-0 right-0 -bottom-0.5 h-[2px] bg-ivar-forest"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  />
+              <div key={link.label} className={link.children ? "relative group/nav" : "relative"}>
+                <Link href={link.href} className="relative py-2 flex items-center gap-1">
+                  <span className={`transition-colors duration-200 ${active ? "text-ivar-ink font-semibold" : "text-ivar-ink/70 hover:text-ivar-ink"}`}>
+                    {link.label}
+                  </span>
+                  {link.soon && (
+                    <span className="ml-1 align-super text-[8.5px] font-bold tracking-wide text-ivar-forest/60">
+                      SOON
+                    </span>
+                  )}
+                  {link.children && (
+                    <LineIcon
+                      name="arrow"
+                      size={10}
+                      stroke={2.4}
+                      className="rotate-90 text-ivar-ink/40 transition-transform group-hover/nav:-rotate-90"
+                    />
+                  )}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute left-0 right-0 -bottom-0.5 h-[2px] bg-ivar-forest"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                </Link>
+
+                {link.children && (
+                  <div className="invisible opacity-0 translate-y-1 group-hover/nav:visible group-hover/nav:opacity-100 group-hover/nav:translate-y-0 transition-all duration-150 absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
+                    <div className="bg-white rounded-xl shadow-[0_12px_32px_rgba(11,53,31,0.14)] border border-ivar-forest/10 py-2 w-[230px]">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-4 py-2.5 text-[13px] text-ivar-ink/75 hover:text-ivar-forest hover:bg-ivar-cream transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 )}
-              </Link>
+              </div>
             );
           })}
         </nav>
 
         <div className="flex items-center gap-4 xl:gap-5 justify-self-end">
-          <div className="hidden xl:block w-[160px] 2xl:w-[200px]">{searchForm}</div>
+          <div className="hidden 2xl:block w-[160px] 2xl:w-[200px]">{searchForm}</div>
 
           <button
             onClick={() => setMenuOpen(true)}
             aria-label="Search"
-            className="xl:hidden shrink-0 text-ivar-forest cursor-pointer"
+            className="2xl:hidden shrink-0 text-ivar-forest cursor-pointer"
             suppressHydrationWarning
           >
             <LineIcon name="search" size={22} stroke={1.8} />
@@ -138,7 +175,7 @@ export default function Header() {
           </Link>
 
           <button
-            className="xl:hidden shrink-0 text-ivar-forest cursor-pointer"
+            className="2xl:hidden shrink-0 text-ivar-forest cursor-pointer"
             aria-label="Open menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(true)}
@@ -191,13 +228,50 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.08 + i * 0.05 }}
                   >
-                    <Link
-                      href={link.href}
-                      className="block py-3 border-b border-[#f0eee6] text-ivar-ink/85 hover:text-ivar-forest"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
+                    <div className="flex items-stretch border-b border-[#f0eee6]">
+                      <Link
+                        href={link.href}
+                        className="flex-1 block py-3 text-ivar-ink/85 hover:text-ivar-forest"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {link.label}
+                        {link.soon && (
+                          <span className="ml-2 text-[10px] font-bold tracking-wide text-ivar-forest/60 align-middle">
+                            SOON
+                          </span>
+                        )}
+                      </Link>
+                      {link.children && (
+                        <button
+                          onClick={() => setMobileSubOpen((v) => (v === link.label ? null : link.label))}
+                          aria-label={`Toggle ${link.label} submenu`}
+                          aria-expanded={mobileSubOpen === link.label}
+                          className="px-2 text-ivar-forest/60 cursor-pointer"
+                          suppressHydrationWarning
+                        >
+                          <LineIcon
+                            name="arrow"
+                            size={12}
+                            stroke={2.4}
+                            className={`rotate-90 transition-transform ${mobileSubOpen === link.label ? "-rotate-90" : ""}`}
+                          />
+                        </button>
+                      )}
+                    </div>
+                    {link.children && mobileSubOpen === link.label && (
+                      <div className="flex flex-col pl-4 border-b border-[#f0eee6]">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="py-2.5 text-[13.5px] text-ivar-ink/65 hover:text-ivar-forest"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </nav>

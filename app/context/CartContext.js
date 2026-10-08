@@ -36,10 +36,6 @@ export function CartProvider({ children }) {
   function add(id, qty = 1) {
     const product = products.find((p) => p.id === id);
     if (!product) return;
-    if (["Yoga", "Wellness"].includes(product.group)) {
-      showToast(`${product.name} is coming soon — not available yet.`);
-      return;
-    }
     setCart((prev) => {
       const existing = prev.find((i) => i.id === id);
       if (existing) {

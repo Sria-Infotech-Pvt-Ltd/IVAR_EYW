@@ -48,7 +48,7 @@ export const CORPORATE_DURATIONS = [
 export const CORPORATE_SUBSCRIPTION_TIERS = [
   { id: "weekly", label: "Weekly Plan", sub: "5 Working Days", features: ["Flexible Orders", "Team Meal Planning", "Fresh Daily Preparation"] },
   { id: "monthly", label: "Monthly Plan", sub: "20 Working Days", features: ["Best Value Pricing", "Dedicated Scheduling", "Consistent Employee Meals"] },
-  { id: "quarterly", label: "Quarterly Wellness Plan", sub: "3 Months", features: ["Employee Wellness Program", "Priority Support", "Long-Term Planning"] },
+  { id: "quarterly", label: "Quarterly Care Plan", sub: "3 Months", features: ["Employee Health Program", "Priority Support", "Long-Term Planning"] },
 ];
 
 export function findPlan(id) {

@@ -18,7 +18,7 @@ const pillars = [
   },
   {
     title: "Better communities",
-    desc: "Wellness shared — at home, at work.",
+    desc: "Good food shared — at home, at work.",
     img: "/assets/hero-smiling-man.jpg",
   },
 ];
@@ -35,7 +35,7 @@ export default function Story() {
             From nature to everyday life.
           </h2>
           <p className="text-[#68766f] leading-[1.85] mt-4 font-light">
-            Ivar brings food, movement and wellness together under one simple
+            Ivar brings food and community together under one simple
             idea: make healthy living more practical, enjoyable and
             accessible.
           </p>

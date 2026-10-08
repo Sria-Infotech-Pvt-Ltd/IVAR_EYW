@@ -45,7 +45,7 @@ export async function POST(request) {
 
   const recommendations = keywordRecommendations(message);
 
-  const system = `You are Ivar's friendly shopping assistant for a food, yoga and wellness brand. Yoga and Wellness products are marked "Coming Soon" and cannot be ordered yet — mention that if asked, but steer food questions toward what's actually available. Answer briefly and warmly (2-4 sentences), grounded ONLY in this live Eat catalog:\n\n${buildCatalogContext()}\n\nWhen you recommend a product, name it exactly as in the catalog with its price. End with a suggested next step like "👉 Browse the Shop (/shop)".`;
+  const system = `You are Ivar's friendly shopping assistant for a food brand. Answer briefly and warmly (2-4 sentences), grounded ONLY in this live Eat catalog:\n\n${buildCatalogContext()}\n\nWhen you recommend a product, name it exactly as in the catalog with its price. End with a suggested next step like "👉 Browse the Shop (/shop)".`;
 
   const claudeReply = await askClaude(system, message);
 

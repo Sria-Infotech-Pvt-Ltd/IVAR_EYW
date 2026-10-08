@@ -93,7 +93,7 @@ export default function ProductDetails({ product }) {
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-[#617169] text-[11px] tracking-wide mt-6">
           <span>✓ Thoughtfully made</span>
           <span>✓ Nature inspired</span>
-          <span>✓ Everyday wellness</span>
+          <span>✓ Everyday goodness</span>
         </div>
       </div>
     </div>

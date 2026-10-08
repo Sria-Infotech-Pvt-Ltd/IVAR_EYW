@@ -53,19 +53,24 @@ export default function PackagingPage() {
       <section className="bg-white overflow-hidden">
         <div className="max-w-[1500px] mx-auto px-[4vw] py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <RevealOnScroll>
-            <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-5">Packaging Solutions</p>
+            <div className="flex items-center gap-3 mb-5">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold">Packaging Solutions</p>
+              <span className="text-[10px] tracking-[0.15em] uppercase font-bold text-ivar-forestDeep bg-ivar-gold rounded-full px-2.5 py-1">
+                Coming Soon
+              </span>
+            </div>
             <h1 className="font-display text-editorial-hero leading-[1.05] text-ivar-ink mb-5">
               Packaging Is Part <span className="italic text-ivar-green">of the Food.</span>
             </h1>
             <p className="text-editorial-body text-ivar-muted max-w-[460px] mb-8">
               Innovative, safe and sustainable packaging solutions to protect freshness, enhance convenience and
-              bring great food to more people.
+              bring great food to more people — launching soon.
             </p>
             <Link
               href="/contact?type=packaging"
               className="group inline-flex items-center gap-3 bg-ivar-forest text-white text-[14px] font-semibold rounded-full pl-6 pr-5 py-3.5 hover:bg-ivar-forestDeep transition-colors mb-10"
             >
-              Explore Packaging Solutions
+              Register Your Interest
               <LineIcon name="arrow" size={16} stroke={2} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-[520px] border-t border-ivar-forest/10 pt-6">
@@ -92,11 +97,11 @@ export default function PackagingPage() {
           <div>
             <h2 className="font-display text-[26px] md:text-[32px] text-ivar-ink mb-2">Our Packaging Solutions</h2>
             <p className="text-[13.5px] text-[#4b564f] max-w-[520px]">
-              A wide range of flexible and rigid packaging formats for food products, designed for safety, shelf life and modern consumer needs.
+              A wide range of flexible and rigid packaging formats for food products, designed for safety, shelf life and modern consumer needs — in development, not yet available to order.
             </p>
           </div>
           <Link href="/contact?type=packaging" className="hidden sm:inline-flex shrink-0 items-center gap-2 border border-ivar-forest text-ivar-forest font-semibold text-sm rounded-full px-5 py-2.5 hover:bg-ivar-cream transition-colors">
-            Discuss Your Packaging Needs
+            Register Interest
           </Link>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
@@ -174,8 +179,8 @@ export default function PackagingPage() {
               </div>
             ))}
           </div>
-          <Link href="/foods" className="inline-flex items-center gap-2 bg-ivar-forest text-white font-semibold text-sm rounded-full px-6 py-3 hover:bg-ivar-forestDeep transition-colors">
-            View Packaging Solutions <LineIcon name="arrow" size={16} stroke={2} />
+          <Link href="/contact?type=packaging" className="inline-flex items-center gap-2 bg-ivar-forest text-white font-semibold text-sm rounded-full px-6 py-3 hover:bg-ivar-forestDeep transition-colors">
+            Notify Me When Live <LineIcon name="arrow" size={16} stroke={2} />
           </Link>
         </div>
       </section>
@@ -187,11 +192,11 @@ export default function PackagingPage() {
         </div>
         <div className="relative max-w-[1320px] mx-auto px-[6vw] py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
-            <h2 className="font-display text-[24px] md:text-[30px] text-white mb-1">Let&apos;s Create Packaging Solutions Together</h2>
-            <p className="text-white/65 text-[14px]">Partner with Ivar for innovative, safe and sustainable packaging solutions for your food products.</p>
+            <h2 className="font-display text-[24px] md:text-[30px] text-white mb-1">Packaging Solutions Are Coming Soon</h2>
+            <p className="text-white/65 text-[14px]">Register your interest and we&apos;ll reach out as soon as Ivar Packaging is ready to partner.</p>
           </div>
           <Link href="/contact?type=packaging" className="shrink-0 inline-flex items-center gap-2 bg-white text-ivar-forest font-semibold text-sm rounded-full px-7 py-3.5 hover:bg-ivar-sage transition-colors">
-            Partner with Us <LineIcon name="arrow" size={16} stroke={2} />
+            Register Interest <LineIcon name="arrow" size={16} stroke={2} />
           </Link>
         </div>
       </section>

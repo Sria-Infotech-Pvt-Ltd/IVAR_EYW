@@ -11,9 +11,11 @@ export default function RevealOnScroll({
   amount = 0.3,
   className = "",
   as: Tag = motion.div,
+  id,
 }) {
   return (
     <Tag
+      id={id}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, amount }}

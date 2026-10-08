@@ -13,7 +13,6 @@ export default function sitemap() {
     { url: `${BASE_URL}/plans`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/corporate-orders`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/story`, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/wellness`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/contact`, changeFrequency: "monthly", priority: 0.5 },
   ].map((route) => ({ ...route, lastModified: new Date() }));
 

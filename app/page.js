@@ -39,7 +39,7 @@ export default function Home() {
         eyebrow="Packaging"
         title="Innovative Packaging for Better Food."
         text="Packaging protects freshness, improves convenience and brings great food to more people — designed with the same care as what's inside it."
-        cta="Explore Packaging"
+        cta="Packaging — Coming Soon"
         ctaHref="/packaging"
       />
       <GoldCTABand />

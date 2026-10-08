@@ -8,10 +8,10 @@ module.exports = {
       colors: {
         ivar: {
           // Primary — Ivar Forest
-          dark: "#0B351F",
-          darker: "#082719",
-          forest: "#0B351F",
-          forestDeep: "#082719",
+          dark: "#0F3824",
+          darker: "#0A2A1A",
+          forest: "#0F3824",
+          forestDeep: "#0A2A1A",
           // Secondary — Brand Green
           green: "#3F7D20",
           leaf: "#3F7D20",
@@ -20,16 +20,17 @@ module.exports = {
           // Muted botanical green — occasional section background
           botanical: "#E7EED5",
           // Ash / White — light section backgrounds & cards
-          cream: "#F2F2F0",
-          paper: "#F2F2F0",
+          cream: "#FAF9F6",
+          paper: "#FAF9F6",
           beige: "#ECECE9",
           mint: "#EDEEEA",
           sand: "#EDEEEA",
           ivory: "#FAFAF9",
           // Earth — Indian ingredient storytelling
           earth: "#73563E",
-          // Gold — premium accents only, use VERY sparingly
-          gold: "#D7C77A",
+          // Gold — premium accents only, use VERY sparingly. Solid saturated
+          // fill (not a pale tint) — pair with dark text, not white.
+          gold: "#E5B03C",
           // Text — never pure black
           text: "#10150F",
           ink: "#10150F",

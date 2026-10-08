@@ -43,7 +43,7 @@ export async function POST(request) {
     .slice(0, 4)
     .map((p) => ({ id: p.id, name: p.name, price: p.price, desc: p.desc }));
 
-  const system = `You are a nutrition consultant writing for Ivar, a food/yoga/wellness brand. Given a client's computed numbers, write 3 short, plain-language insight bullets (general guidance only, no medical claims). Return ONLY the bullets, one per line, no numbering.`;
+  const system = `You are a nutrition consultant writing for Ivar, a food brand. Given a client's computed numbers, write 3 short, plain-language insight bullets (general guidance only, no medical claims). Return ONLY the bullets, one per line, no numbering.`;
   const userMsg = `Goal: ${input.goal}, Activity: ${input.activityLevel}, BMI: ${core.bmi}, BMR: ${core.bmr}, TDEE: ${core.tdee}, Target kcal: ${core.targetKcal}, Nutrition score: ${core.nutritionScore}, Sleep: ${input.sleepHours}h, Water: ${input.waterLitres}L.`;
   const claudeInsights = await askClaude(system, userMsg);
   const insights = claudeInsights

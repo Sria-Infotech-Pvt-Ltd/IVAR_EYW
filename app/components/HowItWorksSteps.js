@@ -1,7 +1,7 @@
 import RevealOnScroll from "./RevealOnScroll";
 
 const STEPS = [
-  { n: "01", title: "Choose", text: "Pick a product, build a box or start a wellness plan." },
+  { n: "01", title: "Choose", text: "Pick a product, build a box or start a nutrition plan." },
   { n: "02", title: "Customise", text: "Set meals, quantities and delivery days to fit your routine." },
   { n: "03", title: "Delivered", text: "Fresh to your door, on schedule — every time." },
   { n: "04", title: "Repeat", text: "Pause, tweak or reorder anytime, right from your account." },

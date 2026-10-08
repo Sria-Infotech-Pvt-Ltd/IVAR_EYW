@@ -52,7 +52,7 @@ export default function HealthCategoryPage() {
             <div>
               <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-3">Ivar Health</p>
               <h2 className="font-display text-editorial-section leading-[1.1] text-ivar-ink">Our {cat.label}</h2>
-              <p className="text-[13.5px] text-ivar-muted mt-2">{list.length} items for everyday wellness.</p>
+              <p className="text-[13.5px] text-ivar-muted mt-2">{list.length} items for everyday balance.</p>
             </div>
             <label className="text-[13px] text-ivar-muted flex items-center gap-2 shrink-0">
               Sort by
@@ -83,7 +83,7 @@ export default function HealthCategoryPage() {
           <div className="mt-16 flex flex-col lg:flex-row items-center justify-between gap-6 border-t border-ivar-forest/10 pt-10">
             <div className="text-center lg:text-left">
               <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-2">Ivar Health</p>
-              <h3 className="font-display text-[24px] md:text-[28px] text-ivar-ink mb-1.5">Everyday Wellness, Simplified</h3>
+              <h3 className="font-display text-[24px] md:text-[28px] text-ivar-ink mb-1.5">Everyday Balance, Simplified</h3>
               <p className="text-[13.5px] text-ivar-muted">Traditional practice. Modern convenience.</p>
             </div>
             <Link href="/health" className="group shrink-0 inline-flex items-center gap-3 bg-ivar-forest text-white font-semibold text-sm rounded-full px-6 py-3.5 hover:bg-ivar-forestDeep transition-colors">

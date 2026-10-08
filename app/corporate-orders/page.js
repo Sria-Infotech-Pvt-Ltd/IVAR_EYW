@@ -64,7 +64,7 @@ export default function CorporateOrdersPage() {
 
   const proteinAddons = [...eatByCat(["Non-Veg Snacks"]).slice(0, 2), ...eatByCat(["Protein & Active Nutrition"]).slice(0, 2)];
   const healthyAddons = [...eatByCat(["Nuts, Seeds & Snacks"]).slice(0, 3), ...eatByCat(["Energy Bites & Cookies"]).slice(0, 2)];
-  const beverageAddons = [...eatByCat(["Teas & Beverages"]), ...eatByCat(["Wellness Shots"]).slice(0, 2)];
+  const beverageAddons = [...eatByCat(["Teas & Beverages"]), ...eatByCat(["Daily Shots"]).slice(0, 2)];
 
   const waMessage = `Hi Ivar 🌿 I'd like a corporate proposal.\n\nCompany: ${form.companyName}\nContact: ${form.contactPerson} (${form.phone})\nLocation: ${form.officeLocation}\nEmployees: ${form.numberOfEmployees}\nPlan: ${findPlan(form.plan)?.label} · ${form.dietPreference} · ${findDuration(form.duration)?.label}\n${form.additionalRequirements ? `Notes: ${form.additionalRequirements}` : ""}`;
   const waLink = buildWhatsAppLink(waMessage);
@@ -80,7 +80,7 @@ export default function CorporateOrdersPage() {
     <main>
       <PageHeader
         title="Healthy Corporate Meal Solutions"
-        subtitle="Fresh, nutritious meals delivered daily for teams, offices, startups, events, and employee wellness programs."
+        subtitle="Fresh, nutritious meals delivered daily for teams, offices, startups, events, and employee health programs."
         img="/assets/hero-office-salad.jpg"
       />
 

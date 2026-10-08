@@ -13,7 +13,7 @@ const slides = [
         <em className="text-[#bfe6cf] not-italic">Better living.</em>
       </>
     ),
-    lead: "Discover thoughtfully made foods and everyday wellness inspired by nature, Indian ingredients and modern lifestyles.",
+    lead: "Discover thoughtfully made foods inspired by nature, Indian ingredients and modern lifestyles.",
   },
   {
     img: "/assets/hero-couple-cooking.jpg",
@@ -25,7 +25,7 @@ const slides = [
         <em className="text-[#bfe6cf] not-italic">every part of your day.</em>
       </>
     ),
-    lead: "From breakfast to wellness, Ivar brings food, movement and mindful living together.",
+    lead: "From breakfast to dinner, Ivar brings food and mindful living together.",
   },
 ];
 

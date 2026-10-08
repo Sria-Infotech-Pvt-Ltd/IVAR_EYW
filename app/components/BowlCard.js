@@ -28,17 +28,19 @@ export default function BowlCard({ product, tag, discountPct = 0, showTags = tru
     router.push("/checkout");
   }
 
+  const attribute = tags.find((t) => t !== dietTag(product));
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="group bg-white rounded-xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
+      className="group bg-white rounded-2xl overflow-hidden border border-[#ece8da] hover:shadow-[0_10px_28px_rgba(11,53,31,0.1)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
     >
       <button
         onClick={() => openProduct(product)}
-        className="relative block w-full aspect-square bg-ivar-cream overflow-hidden"
+        className="relative block w-full aspect-[4/3] bg-ivar-cream overflow-hidden"
         aria-label={`View ${product.name}`}
         suppressHydrationWarning
       >
@@ -53,69 +55,61 @@ export default function BowlCard({ product, tag, discountPct = 0, showTags = tru
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
-        {tag && (
-          <span className="absolute top-3 left-3 bg-ivar-yellow text-white text-[11px] font-bold uppercase px-3 py-1.5 rounded">
-            {tag}
-          </span>
-        )}
+        <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+          {tag && (
+            <span className="bg-ivar-dark text-white text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+              {tag}
+            </span>
+          )}
+          {showTags && attribute && (
+            <span className="bg-white/95 text-ivar-forest text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+              {attribute}
+            </span>
+          )}
+        </div>
         {discountPct > 0 && (
-          <span className="absolute top-3 right-3 bg-ivar-success text-white text-[11px] font-bold px-2 py-1 rounded">
+          <span className="absolute top-3 right-3 bg-ivar-success text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
             {discountPct}% OFF
           </span>
         )}
-        <span
-          className="absolute bottom-3 right-3 bg-ivar-dark text-white text-xs font-bold px-3 py-2 rounded flex items-baseline gap-1.5
-          opacity-100 translate-y-0
-          md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0
-          transition-all duration-300 ease-out"
-        >
-          {discounted && <span className="line-through opacity-70 font-normal">{money(product.price)}</span>}
-          {money(discounted ?? product.price)}
-        </span>
       </button>
 
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-bold text-[18px] leading-snug text-ivar-text line-clamp-2 min-h-[48px]">{product.name}</h3>
-        <p className="text-sm font-semibold text-[#4B5563] mt-1">
-          {[n.proteinG ? `${n.proteinG}g protein` : null, n.kcal ? `${n.kcal} kcal` : null].filter(Boolean).join(" · ")}
-        </p>
-        {showTags && (
-          <div className="flex flex-wrap gap-1.5 mt-3">
-            {tags.map((t) => (
-              <span key={t} className="text-xs font-semibold bg-ivar-mint text-ivar-dark px-3 py-1 rounded-2xl">
-                {t}
-              </span>
-            ))}
+        <div className="flex items-start justify-between gap-3 mb-1.5">
+          <h3 className="font-display text-[18px] leading-snug text-ivar-ink line-clamp-2 min-h-[46px]">{product.name}</h3>
+          <div className="shrink-0 text-right">
+            {discounted && <p className="text-[11px] text-ivar-muted line-through leading-tight">{money(product.price)}</p>}
+            <p className="font-display text-[17px] text-ivar-forest leading-tight">{money(discounted ?? product.price)}</p>
           </div>
+        </div>
+        {product.desc && (
+          <p className="text-[12.5px] leading-relaxed text-ivar-muted line-clamp-2 mb-3">{product.desc}</p>
         )}
-        <div className="flex gap-2 mt-auto pt-4">
-          <div className="relative flex-1 group/cart">
-            <button
-              onClick={() => add(product.id, 1)}
-              aria-label="Add to Cart"
-              className="w-full border-2 border-ivar-dark text-ivar-dark rounded-full py-2.5 flex items-center justify-center hover:bg-ivar-cream transition-colors cursor-pointer"
-              suppressHydrationWarning
-            >
-              <LineIcon name="bag" size={18} stroke={1.8} />
-            </button>
-            <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap bg-ivar-ink text-white text-[11px] font-medium px-3 py-1.5 rounded-md opacity-0 scale-95 group-hover/cart:opacity-100 group-hover/cart:scale-100 transition-all duration-150 z-10">
-              Add to cart?
-            </span>
-          </div>
+        {showTags && (
+          <p className="text-[11.5px] font-medium text-[#6b7771] mb-4">
+            {[dietTag(product), n.proteinG ? `${n.proteinG}g protein` : null, n.kcal ? `${n.kcal} kcal` : null].filter(Boolean).join(" · ")}
+          </p>
+        )}
 
-          <div className="relative flex-1 group/order">
-            <button
-              onClick={orderNow}
-              aria-label="Order Now"
-              className="w-full bg-ivar-dark text-white rounded-full py-2.5 flex items-center justify-center hover:bg-ivar-darker hover:-translate-y-0.5 transition-all cursor-pointer"
-              suppressHydrationWarning
-            >
-              <LineIcon name="arrow" size={18} stroke={2.2} />
-            </button>
-            <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap bg-ivar-ink text-white text-[11px] font-medium px-3 py-1.5 rounded-md opacity-0 scale-95 group-hover/order:opacity-100 group-hover/order:scale-100 transition-all duration-150 z-10">
-              Order now?
-            </span>
-          </div>
+        <div className="flex gap-2 mt-auto pt-1">
+          <button
+            onClick={() => add(product.id, 1)}
+            aria-label="Add to Cart"
+            className="flex-1 inline-flex items-center justify-center gap-2 border border-ivar-forest/25 text-ivar-forest text-[12.5px] font-semibold rounded-full py-2.5 hover:bg-ivar-cream transition-colors cursor-pointer"
+            suppressHydrationWarning
+          >
+            <LineIcon name="bag" size={15} stroke={1.8} />
+            Add to Cart
+          </button>
+          <button
+            onClick={orderNow}
+            aria-label="Order Now"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-ivar-forest text-white text-[12.5px] font-semibold rounded-full py-2.5 hover:bg-ivar-forestDeep transition-colors cursor-pointer"
+            suppressHydrationWarning
+          >
+            Order Now
+            <LineIcon name="arrow" size={14} stroke={2.2} />
+          </button>
         </div>
       </div>
     </motion.article>
