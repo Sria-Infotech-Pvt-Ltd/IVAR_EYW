@@ -83,17 +83,17 @@ export default function WorkforcePage() {
 
       <section className="bg-ivar-forest py-14 md:py-16">
         <div className="max-w-[1320px] mx-auto px-[6vw]">
-          <div className="flex flex-wrap justify-center gap-x-10 gap-y-8 divide-x divide-white/10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
             {TRUST.map((t, i) => (
               <RevealOnScroll
                 key={t.title}
                 delay={i * 0.06}
-                className={`flex flex-col items-center text-center gap-3 max-w-[140px] ${i > 0 ? "pl-10" : ""}`}
+                className="flex flex-col items-center text-center gap-3"
               >
                 <span className="size-11 rounded-full bg-white/10 text-white flex items-center justify-center">
                   <LineIcon name={t.icon} size={18} stroke={1.6} />
                 </span>
-                <p className="text-[12.5px] font-medium text-white/85 leading-tight">{t.title}</p>
+                <p className="text-[12.5px] font-medium text-white/85 leading-tight max-w-[140px]">{t.title}</p>
               </RevealOnScroll>
             ))}
           </div>
