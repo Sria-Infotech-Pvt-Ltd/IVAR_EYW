@@ -1,27 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { useCart } from "../context/CartContext";
-import { money } from "../data/products";
+import { buildWhatsAppLink } from "../lib/whatsapp";
 
 export default function ProductDetails({ product }) {
-  const { add, closeCart } = useCart();
-  const router = useRouter();
-  const [qty, setQty] = useState(1);
-  const [added, setAdded] = useState(false);
-
-  function handleAdd() {
-    add(product.id, qty);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1800);
-  }
-
-  function handleBuyNow() {
-    add(product.id, qty);
-    closeCart();
-    router.push("/checkout");
-  }
+  const n = product.nutrition || {};
+  const waLink = buildWhatsAppLink(`Hi Ivar 🌿 I'd like to enquire about ${product.name}.`);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-[minmax(0,400px)_1fr] gap-8 md:gap-12 items-start">
@@ -47,47 +30,42 @@ export default function ProductDetails({ product }) {
         <h1 className="font-serif font-semibold text-[28px] md:text-[34px] leading-[1.15] mt-2 mb-3">
           {product.name}
         </h1>
-        <p className="font-serif text-[22px] font-semibold text-ivar-dark mb-4">
-          {money(product.price)}
-        </p>
         <p className="text-[#4b564f] text-[15px] leading-[1.7] max-w-[460px]">
           {product.desc}
         </p>
 
-        <div className="flex items-center gap-3 mt-6 flex-wrap">
-          <div className="flex items-center border border-[#d6ddd7] rounded-full overflow-hidden">
-            <button
-              className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
-              onClick={() => setQty((q) => Math.max(1, q - 1))}
-              suppressHydrationWarning
-            >
-              −
-            </button>
-            <span className="w-9 text-center" suppressHydrationWarning>
-              {qty}
-            </span>
-            <button
-              className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
-              onClick={() => setQty((q) => q + 1)}
-              suppressHydrationWarning
-            >
-              +
-            </button>
+        {product.ingredients?.length > 0 && (
+          <div className="mt-6">
+            <p className="text-[11px] tracking-[0.16em] uppercase text-[#668A73] font-semibold mb-3">Ingredients</p>
+            <div className="flex flex-wrap gap-2">
+              {product.ingredients.map((ing) => (
+                <span key={ing} className="px-4 py-2 rounded-full border border-ivar-forest/20 text-[12.5px] font-medium text-ivar-ink">
+                  {ing}
+                </span>
+              ))}
+            </div>
           </div>
-          <button
-            className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-transparent bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
-            onClick={handleAdd}
-            suppressHydrationWarning
+        )}
+
+        {n.kcal && (
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[13.5px] text-[#4b564f]">
+            <span>{n.kcal} kcal</span>
+            {n.proteinG != null && <span>{n.proteinG}g protein</span>}
+            {n.carbsG != null && <span>{n.carbsG}g carbs</span>}
+            {n.fatG != null && <span>{n.fatG}g fat</span>}
+            {n.fiberG != null && <span>{n.fiberG}g fibre</span>}
+          </div>
+        )}
+
+        <div className="mt-8">
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex justify-center items-center rounded-full px-8 py-3.5 font-semibold text-[13px] tracking-wide cursor-pointer border border-transparent bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
           >
-            {added ? "Added ✓" : "Add to cart"}
-          </button>
-          <button
-            className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-ivar-dark text-ivar-dark transition-colors duration-200 hover:bg-ivar-dark hover:text-white"
-            onClick={handleBuyNow}
-            suppressHydrationWarning
-          >
-            Buy Now
-          </button>
+            Enquire Now
+          </a>
         </div>
 
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-[#617169] text-[11px] tracking-wide mt-6">

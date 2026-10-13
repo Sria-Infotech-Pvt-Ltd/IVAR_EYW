@@ -71,10 +71,10 @@ export default function WorkforceRolePage() {
 
       <DarkCTA
         img="/assets/ivar-workforce.jpeg"
-        eyebrow="Hire Through Ivar Workforce"
+        eyebrow="Ivar Workforce · Coming Soon"
         title={`Need ${role.title}?`}
-        text="Share your headcount and location — our workforce team will match you with verified, trained candidates."
-        cta="Request Staff"
+        text="Ivar Workforce is launching soon. Share your headcount and location and we'll reach out as soon as we're live."
+        cta="Register Interest"
         ctaHref={`/contact?type=workforce-hiring&role=${role.slug}`}
         align="center"
       />

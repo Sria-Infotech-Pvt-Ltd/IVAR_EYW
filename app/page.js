@@ -7,7 +7,7 @@ import HomeCategoryCards from "./components/HomeCategoryCards";
 import FeaturedCarousel from "./components/FeaturedCarousel";
 import ComparisonSection from "./components/ComparisonSection";
 import MakhanaStory from "./components/MakhanaStory";
-import IngredientLibrary from "./components/IngredientLibrary";
+// import IngredientLibrary from "./components/IngredientLibrary";
 import IngredientToProduct from "./components/IngredientToProduct";
 import FoodInnovationGrid from "./components/FoodInnovationGrid";
 import HowItWorksSteps from "./components/HowItWorksSteps";
@@ -28,7 +28,7 @@ export default function Home() {
       <FeaturedCarousel />
       <ComparisonSection />
       <MakhanaStory />
-      <IngredientLibrary />
+      {/* <IngredientLibrary /> */}
       <IngredientToProduct />
       <FoodInnovationGrid />
       <HowItWorksSteps />

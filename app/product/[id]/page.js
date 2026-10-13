@@ -46,13 +46,6 @@ export default function ProductPage({ params }) {
     description: product.desc,
     category: product.cat,
     image: `https://ivarlife.com${product.img}`,
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "INR",
-      price: product.price,
-      availability: "https://schema.org/InStock",
-      url: `https://ivarlife.com/product/${product.id}`,
-    },
   };
 
   return (

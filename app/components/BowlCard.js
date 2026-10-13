@@ -1,10 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { useCart } from "../context/CartContext";
 import { useProductModal } from "../context/ProductModalContext";
 import { money } from "../data/products";
+import { buildWhatsAppLink } from "../lib/whatsapp";
 import LineIcon from "./LineIcon";
 
 function dietTag(p) {
@@ -15,18 +14,11 @@ function dietTag(p) {
 }
 
 export default function BowlCard({ product, tag, discountPct = 0, showTags = true }) {
-  const { add, closeCart } = useCart();
   const { openProduct } = useProductModal();
-  const router = useRouter();
   const n = product.nutrition || {};
   const discounted = discountPct ? Math.round(product.price * (1 - discountPct / 100)) : null;
   const tags = [dietTag(product), n.proteinG >= 20 ? "High Protein" : null, n.kcal && n.kcal <= 250 ? "Light" : null].filter(Boolean);
-
-  function orderNow() {
-    add(product.id, 1);
-    closeCart();
-    router.push("/checkout");
-  }
+  const waLink = buildWhatsAppLink(`Hi Ivar 🌿 I'd like to enquire about ${product.name}.`);
 
   const attribute = tags.find((t) => t !== dietTag(product));
 
@@ -91,25 +83,17 @@ export default function BowlCard({ product, tag, discountPct = 0, showTags = tru
           </p>
         )}
 
-        <div className="flex gap-2 mt-auto pt-1">
-          <button
-            onClick={() => add(product.id, 1)}
-            aria-label="Add to Cart"
-            className="flex-1 inline-flex items-center justify-center gap-2 border border-ivar-forest/25 text-ivar-forest text-[12.5px] font-semibold rounded-full py-2.5 hover:bg-ivar-cream transition-colors cursor-pointer"
-            suppressHydrationWarning
+        <div className="mt-auto pt-1">
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Enquire about ${product.name}`}
+            className="flex items-center justify-center gap-2 bg-ivar-forest text-white text-[12.5px] font-semibold rounded-full py-2.5 hover:bg-ivar-forestDeep transition-colors"
           >
-            <LineIcon name="bag" size={15} stroke={1.8} />
-            Add to Cart
-          </button>
-          <button
-            onClick={orderNow}
-            aria-label="Order Now"
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-ivar-forest text-white text-[12.5px] font-semibold rounded-full py-2.5 hover:bg-ivar-forestDeep transition-colors cursor-pointer"
-            suppressHydrationWarning
-          >
-            Order Now
+            Enquire Now
             <LineIcon name="arrow" size={14} stroke={2.2} />
-          </button>
+          </a>
         </div>
       </div>
     </motion.article>

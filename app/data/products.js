@@ -12,7 +12,9 @@ export const groups = ["Eat"];
 // or relabeled packaging. The newer "Protein Bowls" photos already use an
 // updated tagline ("Good Food. A Better Tomorrow.") with no wellness/yoga
 // text, so that's the template to match going forward.
-export const products = [
+// Full catalog — kept intact so it can be restored later. The site
+// currently only shows a curated subset (see `products` below).
+const ALL_PRODUCTS = [
   // ---------- EAT — Breakfast & Grains ----------
   {
     id: 1,
@@ -130,13 +132,57 @@ export const products = [
   },
   {
     id: 50,
-    name: "Makhana Crunch",
+    name: "Makhana — Classic Salt & Pepper",
     group: "Eat",
     cat: "Nuts, Seeds & Snacks",
     price: 199,
-    desc: "Light. Crunchy. Nutritious. Roasted fox nuts with Himalayan salt — rich in protein, low calorie.",
-    ingredients: ["Roasted fox nuts (makhana)", "Himalayan pink salt", "Peri-peri seasoning"],
+    desc: "Light. Crunchy. Nutritious. Roasted fox nuts with Himalayan salt and pepper — rich in protein, low calorie.",
+    ingredients: ["Roasted fox nuts (makhana)", "Himalayan pink salt", "Black pepper"],
     nutrition: { kcal: 120, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
+    img: "/assets/products/eat/makhana-crunch.jpg",
+  },
+  {
+    id: 73,
+    name: "Makhana — Peri Peri",
+    group: "Eat",
+    cat: "Nuts, Seeds & Snacks",
+    price: 199,
+    desc: "Light. Crunchy. Nutritious. Roasted fox nuts tossed in peri-peri seasoning — rich in protein, low calorie.",
+    ingredients: ["Roasted fox nuts (makhana)", "Peri-peri seasoning", "Rock salt"],
+    nutrition: { kcal: 122, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
+    img: "/assets/products/eat/makhana-crunch.jpg",
+  },
+  {
+    id: 74,
+    name: "Makhana — Pudina Masala",
+    group: "Eat",
+    cat: "Nuts, Seeds & Snacks",
+    price: 199,
+    desc: "Light. Crunchy. Nutritious. Roasted fox nuts with a tangy pudina masala blend — rich in protein, low calorie.",
+    ingredients: ["Roasted fox nuts (makhana)", "Mint (pudina) masala blend", "Rock salt"],
+    nutrition: { kcal: 121, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
+    img: "/assets/products/eat/makhana-crunch.jpg",
+  },
+  {
+    id: 75,
+    name: "Makhana — Himalayan Salt",
+    group: "Eat",
+    cat: "Nuts, Seeds & Snacks",
+    price: 199,
+    desc: "Light. Crunchy. Nutritious. Roasted fox nuts, simply seasoned with Himalayan salt — rich in protein, low calorie.",
+    ingredients: ["Roasted fox nuts (makhana)", "Himalayan pink salt"],
+    nutrition: { kcal: 118, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
+    img: "/assets/products/eat/makhana-crunch.jpg",
+  },
+  {
+    id: 76,
+    name: "Makhana — Cheese & Herbs",
+    group: "Eat",
+    cat: "Nuts, Seeds & Snacks",
+    price: 219,
+    desc: "Light. Crunchy. Nutritious. Roasted fox nuts with a savoury cheese and herb seasoning — rich in protein, low calorie.",
+    ingredients: ["Roasted fox nuts (makhana)", "Cheese seasoning", "Mixed herbs"],
+    nutrition: { kcal: 125, proteinG: 4, carbsG: 20, fatG: 4, fiberG: 2 },
     img: "/assets/products/eat/makhana-crunch.jpg",
   },
   {
@@ -642,6 +688,21 @@ export const products = [
     img: "/assets/products/eat/egg-avocado-power-bowl.jpg",
   },
 ];
+
+// Curated live catalog — every date- and makhana-related product (not just
+// one each). Change this filter (or swap back to ALL_PRODUCTS) to bring the
+// rest of the catalog back.
+const VISIBLE_IDS = [
+  50, // Makhana — Classic Salt & Pepper
+  73, // Makhana — Peri Peri
+  74, // Makhana — Pudina Masala
+  75, // Makhana — Himalayan Salt
+  76, // Makhana — Cheese & Herbs
+  62, // Date & Chocolate Protein Bites
+  63, // Mango Coconut Fruit Bites (contains dates)
+  64, // Millet Chocolate Bites (contains dates)
+];
+export const products = ALL_PRODUCTS.filter((p) => VISIBLE_IDS.includes(p.id));
 
 export function money(n) {
   return "₹" + n.toLocaleString("en-IN");

@@ -24,21 +24,26 @@ export default function WorkforcePage() {
       <section className="bg-white overflow-hidden">
         <div className="max-w-[1500px] mx-auto px-[4vw] py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <RevealOnScroll>
-            <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-5">
-              Ivar Workforce · People | Skills | Opportunities
-            </p>
+            <div className="flex items-center gap-3 mb-5">
+              <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold">
+                Ivar Workforce · People | Skills | Opportunities
+              </p>
+              <span className="text-[10px] tracking-[0.15em] uppercase font-bold text-ivar-forestDeep bg-ivar-gold rounded-full px-2.5 py-1">
+                Coming Soon
+              </span>
+            </div>
             <h1 className="font-display text-editorial-hero leading-[1.05] text-ivar-ink mb-5">
               Right People <span className="italic text-ivar-green">for a Stronger Food Ecosystem.</span>
             </h1>
             <p className="text-editorial-body text-ivar-muted max-w-[480px] mb-8">
-              Running a restaurant, cloud kitchen, café or food business? Ivar Workforce connects you with
-              trained, verified staff — ready to work, from chefs to delivery partners.
+              Running a restaurant, cloud kitchen, café or food business? Ivar Workforce will connect you with
+              trained, verified staff — ready to work, from chefs to delivery partners. Launching soon.
             </p>
             <Link
               href="/contact?type=workforce-hiring"
               className="group inline-flex items-center gap-3 bg-ivar-forest text-white text-[14px] font-semibold rounded-full pl-6 pr-5 py-3.5 hover:bg-ivar-forestDeep transition-colors"
             >
-              Hire Through Ivar Workforce
+              Register Your Interest
               <LineIcon name="arrow" size={16} stroke={2} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </RevealOnScroll>
@@ -104,8 +109,8 @@ export default function WorkforcePage() {
         img="/assets/hero-couple-cooking.jpg"
         eyebrow="Building People Power"
         title="Connecting People With Opportunities."
-        text="Share your role requirements, headcount and location — our workforce team will match you with verified, trained candidates."
-        cta="Request Staff"
+        text="Ivar Workforce is launching soon. Share your role requirements, headcount and location, and we'll reach out as soon as we're live."
+        cta="Register Interest"
         ctaHref="/contact?type=workforce-hiring"
         align="center"
       />

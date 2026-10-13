@@ -11,25 +11,22 @@ const COMMITMENTS = [
 ];
 
 const primaryNav = [
-  ["Ivar Essentials", "/foods"],
-  ["Ivar Health", "/health"],
-  ["Workforce", "/workforce"],
-  ["Export", "/export"],
-  ["Membership", "/membership"],
-  ["Ingredients", "/ingredients"],
-  ["Innovation", "/innovation"],
-  ["Packaging", "/packaging"],
+  ["Home", "/"],
+  ["Menu", "/shop"],
+  ["Find Ivar", "/find-ivar"],
+  ["Book Event", "/book-event"],
   ["About", "/story"],
-  ["Contact", "/contact"],
+  ["Franchise", "/franchise"],
+  ["Workforce (Soon)", "/workforce"],
+  ["Packaging (Soon)", "/packaging"],
 ];
 
 const explore = [
-  ["Menu", "/shop"],
   ["Build a Box", "/build"],
   ["AI Planner", "/planner"],
   ["Plans", "/plans"],
   ["Corporate Orders", "/corporate-orders"],
-  ["Breakfast", "/breakfast"],
+  ["Contact", "/contact"],
 ];
 
 const legal = [
@@ -56,9 +53,9 @@ export default function Footer() {
     <footer id="contact" className="bg-ivar-forestDeep text-white">
       <div className="max-w-[1500px] mx-auto px-[4vw] py-16 md:py-20 grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1fr] gap-12">
         <div>
-          <div className="h-14 w-[180px] mb-5">
+          <div className="h-12 w-[170px] mb-5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/logo-wordmark-white.png" alt="Ivar" className="w-full h-full object-contain object-left" />
+            <img src="/assets/logo-wordmark.png" alt="Ivar" className="w-full h-full object-contain object-left" />
           </div>
           <p className="font-display text-[22px] leading-snug text-white max-w-[320px] mb-4">
             Good Food. Better Tomorrow.

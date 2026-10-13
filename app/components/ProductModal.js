@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useProductModal } from "../context/ProductModalContext";
-import { useCart } from "../context/CartContext";
 import { money } from "../data/products";
+import { buildWhatsAppLink } from "../lib/whatsapp";
 
 const DETAILS_LABEL = {
   Eat: "Ingredients",
@@ -12,17 +11,6 @@ const DETAILS_LABEL = {
 
 export default function ProductModal() {
   const { product, closeProduct } = useProductModal();
-  const { add, closeCart } = useCart();
-  const router = useRouter();
-  const [qty, setQty] = useState(1);
-  const [added, setAdded] = useState(false);
-
-  useEffect(() => {
-    if (product) {
-      setQty(1);
-      setAdded(false);
-    }
-  }, [product]);
 
   useEffect(() => {
     if (!product) return;
@@ -34,19 +22,7 @@ export default function ProductModal() {
 
   if (!product) return null;
 
-  function handleAdd() {
-    add(product.id, qty);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1800);
-  }
-
-  function handleBuyNow() {
-    add(product.id, qty);
-    closeCart();
-    closeProduct();
-    router.push("/checkout");
-  }
-
+  const waLink = buildWhatsAppLink(`Hi Ivar 🌿 I'd like to enquire about ${product.name}.`);
   const label = DETAILS_LABEL[product.group] || "Details";
 
   return (
@@ -111,39 +87,14 @@ export default function ProductModal() {
             )}
 
             <div className="flex items-center gap-4 mt-6 flex-wrap">
-              <div className="flex items-center border border-[#d6ddd7] rounded-full overflow-hidden">
-                <button
-                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
-                  onClick={() => setQty((q) => Math.max(1, q - 1))}
-                  suppressHydrationWarning
-                >
-                  −
-                </button>
-                <span className="w-9 text-center" suppressHydrationWarning>
-                  {qty}
-                </span>
-                <button
-                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-[#f4f6f1] transition-colors"
-                  onClick={() => setQty((q) => q + 1)}
-                  suppressHydrationWarning
-                >
-                  +
-                </button>
-              </div>
-              <button
+              <a
+                href={waLink}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-transparent bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
-                onClick={handleAdd}
-                suppressHydrationWarning
               >
-                {added ? "Added ✓" : "Add to cart"}
-              </button>
-              <button
-                className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-ivar-dark text-ivar-dark transition-colors duration-200 hover:bg-ivar-dark hover:text-white"
-                onClick={handleBuyNow}
-                suppressHydrationWarning
-              >
-                Buy Now
-              </button>
+                Enquire Now
+              </a>
             </div>
           </div>
         </div>

@@ -8,10 +8,10 @@ import { useProductModal } from "../context/ProductModalContext";
 import LineIcon from "./LineIcon";
 
 const FEATURED = [
-  { id: 4, ratio: 162 / 290, points: ["Wholesome nutrition to kickstart your day.", "Gluten free", "Ancient grains"] },
   { id: 50, ratio: 1, points: ["Light & crunchy", "Rich in protein", "Roasted fox nuts, low calorie"] },
-  { id: 66, ratio: 1145 / 1374, points: ["A traditional favourite", "No refined sugar", "Peanuts, sesame & jaggery"] },
-  { id: 3, ratio: 162 / 290, points: ["Traditional nutrition", "High calcium", "Natural energy"] },
+  { id: 62, ratio: 1, points: ["Naturally sweet", "Protein rich", "Guilt-free energy boost"] },
+  { id: 63, ratio: 1, points: ["Tropical fruit", "Real coconut", "Natural energy"] },
+  { id: 64, ratio: 1, points: ["Wholesome millets", "Rich cocoa", "Nourishing indulgence"] },
 ];
 
 const items = FEATURED.map((f) => ({ ...f, product: products.find((p) => p.id === f.id) })).filter((f) => f.product);
