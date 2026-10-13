@@ -7,7 +7,6 @@ import CartDrawer from "./components/CartDrawer";
 import Toast from "./components/Toast";
 import MobileTabBar from "./components/MobileTabBar";
 import ProductModal from "./components/ProductModal";
-import FloatingMiniCart from "./components/FloatingMiniCart";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AskIvarWidget from "./components/AskIvarWidget";
 import NetworkStatus from "./components/NetworkStatus";
@@ -78,7 +77,6 @@ export default function RootLayout({ children }) {
             <Toast />
             <MobileTabBar />
             <ProductModal />
-            <FloatingMiniCart />
             <FloatingWhatsApp />
             <AskIvarWidget />
           </ProductModalProvider>

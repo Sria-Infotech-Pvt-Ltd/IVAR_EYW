@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCart } from "../context/CartContext";
-import { money } from "../data/products";
 
 const tabs = [
   {
@@ -90,36 +88,9 @@ const tabs = [
 
 export default function MobileTabBar() {
   const pathname = usePathname();
-  const { count, subtotal, openCart } = useCart();
 
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40">
-      {count > 0 && (
-        <button
-          onClick={openCart}
-          className="w-full flex items-center justify-between bg-ivar-dark text-white px-5 py-3 text-sm"
-          suppressHydrationWarning
-        >
-          <span className="flex items-center gap-2">
-            <span className="bg-white/20 rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold">
-              {count}
-            </span>
-            <span className="font-medium">{money(subtotal)}</span>
-          </span>
-          <span className="font-semibold tracking-wide flex items-center gap-1">
-            View Cart
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M9 6l6 6-6 6"
-                stroke="#fff"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </button>
-      )}
       <nav className="bg-white border-t border-[#e8e5da] flex items-stretch pb-[env(safe-area-inset-bottom)]">
         {tabs.map((tab) => {
           const active =
@@ -138,11 +109,6 @@ export default function MobileTabBar() {
               >
                 {tab.label}
               </span>
-              {tab.href === "/cart" && count > 0 && (
-                <span className="absolute top-1 right-[26%] bg-ivar-dark text-white text-[9px] font-semibold rounded-full min-w-[15px] h-[15px] flex items-center justify-center px-[3px]">
-                  {count}
-                </span>
-              )}
             </Link>
           );
         })}
