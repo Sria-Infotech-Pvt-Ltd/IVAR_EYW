@@ -12,21 +12,24 @@ const COMMITMENTS = [
 
 const primaryNav = [
   ["Home", "/"],
-  ["Menu", "/shop"],
-  ["Find Ivar", "/find-ivar"],
-  ["Book Event", "/book-event"],
-  ["About", "/story"],
-  ["Franchise", "/franchise"],
-  ["Workforce (Soon)", "/workforce"],
-  ["Packaging (Soon)", "/packaging"],
+  ["Our Products", "/shop"],
+  ["Gift Hampers", "/gift-hampers"],
+  ["Corporate & Events", "/corporate-gifting"],
+  ["Workforce Solutions", "/workforce"],
+  ["Custom Packaging", "/packaging"],
+  ["About IVAR", "/story"],
+  ["Contact Us", "/contact"],
 ];
 
 const explore = [
+  ["Corporate Gifting", "/corporate-gifting"],
+  ["Corporate Food Supply", "/corporate-orders"],
+  ["Event Food & Refreshments", "/book-event"],
+  ["Celebration & Wedding Gifts", "/celebration-gifts"],
+  ["Bulk & Custom Orders", "/bulk-orders"],
   ["Build a Box", "/build"],
   ["AI Planner", "/planner"],
   ["Plans", "/plans"],
-  ["Corporate Orders", "/corporate-orders"],
-  ["Contact", "/contact"],
 ];
 
 const legal = [

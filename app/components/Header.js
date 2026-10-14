@@ -19,30 +19,42 @@ const MAKHANA_OPTIONS = [
   { href: "/makhana#weights", label: "Weights / Chips" },
 ];
 
+const CORPORATE_EVENTS_OPTIONS = [
+  { href: "/corporate-gifting", label: "Corporate Gifting" },
+  { href: "/corporate-orders", label: "Corporate Food Supply" },
+  { href: "/book-event", label: "Event Food & Refreshments" },
+  { href: "/celebration-gifts", label: "Celebration & Wedding Gifts" },
+  { href: "/bulk-orders", label: "Bulk & Custom Orders" },
+];
+
 const navLinks = [
   { href: "/", label: "Home" },
   {
     href: "/shop",
-    label: "Menu",
+    label: "Our Products",
     children: [
       { href: "/date-go", label: "Date Go", children: DATE_GO_PRODUCTS },
       { href: "/makhana", label: "Makhana", children: MAKHANA_OPTIONS },
     ],
   },
   {
+    href: "/corporate-gifting",
+    label: "Corporate & Events",
+    children: CORPORATE_EVENTS_OPTIONS,
+  },
+  {
     href: "/workforce",
-    label: "Workforce",
+    label: "Workforce Solutions",
     children: WORKFORCE_ROLES.map((r) => ({ href: `/workforce/${r.slug}`, label: r.title })),
   },
-  { href: "/packaging", label: "Packaging" },
-  { href: "/export", label: "Export" },
-  { href: "/story", label: "About Us" },
-  { href: "/contact", label: "Contact" },
+  { href: "/packaging", label: "Custom Packaging" },
+  { href: "/story", label: "About IVAR" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 // Kept for later — not linked from the navbar right now:
+// { href: "/export", label: "Export" },
 // { href: "/find-ivar", label: "Find Ivar" },
-// { href: "/book-event", label: "Book Event" },
 // { href: "/franchise", label: "Franchise" },
 // { href: "/membership", label: "Membership" },
 // { href: "/ingredients", label: "Ingredients" },
