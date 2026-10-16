@@ -1,128 +1,124 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LineIcon from "./LineIcon";
 
-const SLIDES = [
-  { img: "/assets/hero-avocado-toast.jpg", word: "Foods.", href: "/foods", cta: "Explore Foods" },
-  { img: "/assets/hero-open-faced-sandwiches.jpg", word: "Health.", href: "/health", cta: "Explore Health" },
-  { img: "/assets/hero-cucumber-toasts.jpg", word: "Essentials.", href: "/foods", cta: "Explore Essentials" },
+const TRUST_BADGES = [
+  { icon: "leaf", title: "Naturally Made", sub: "Always" },
+  { icon: "flask", title: "Protein Rich", sub: "Every Bite" },
+  { icon: "shield", title: "No Preservatives", sub: "Ever" },
+];
+
+const MARQUEE_WORDS = [
+  "NATURALLY MADE",
+  "ROASTED FRESH",
+  "NO PRESERVATIVES",
+  "HIGH PROTEIN",
+  "PAN-INDIA DELIVERY",
+  "GOOD FOOD, BRIGHTER DAYS",
 ];
 
 export default function IvarHero() {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setActive((i) => (i + 1) % SLIDES.length), 6000);
-    return () => clearInterval(t);
-  }, []);
-
   return (
-    <section className="relative min-h-[72vh] overflow-hidden bg-white flex items-center">
-      {SLIDES.map((s, i) => (
-        <motion.div
-          key={s.img}
-          aria-hidden={i !== active}
-          initial={false}
-          animate={{ opacity: i === active ? 1 : 0, scale: i === active ? 1 : 1.06 }}
-          transition={{ opacity: { duration: 1 }, scale: { duration: 7, ease: "linear" } }}
-          className="absolute inset-0"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={s.img} alt="" className="w-full h-full object-cover" />
-        </motion.div>
-      ))}
-      <div className="relative z-10 max-w-[720px] mx-auto px-[6vw] text-center pt-24 pb-16">
-        <motion.span
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15, duration: 0.6 }}
-          className="inline-flex items-center gap-2.5 rounded-full border border-ivar-forest/20 px-5 py-2.5 text-[11px] tracking-[0.18em] uppercase text-ivar-forest font-semibold mb-8"
-          style={{ textShadow: "0 1px 12px rgba(255,255,255,0.8)" }}
-        >
-          <LineIcon name="leaf" size={14} stroke={1.8} />
-          Pure Natural Indian Food
-        </motion.span>
-
-        <h1 className="leading-[1.02]" style={{ textShadow: "0 2px 20px rgba(255,255,255,0.85)" }}>
-          <motion.span
-            initial={{ opacity: 0, y: 28 }}
+    <>
+      <section className="relative overflow-hidden bg-ivar-cream">
+        <div className="max-w-[1500px] mx-auto px-[6vw] py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="block font-sans text-[64px] sm:text-[88px] md:text-[110px] font-bold text-ivar-ink tracking-tight"
+            transition={{ duration: 0.6 }}
           >
-            IVAR
-          </motion.span>
-          <span className="block h-[52px] sm:h-[70px] md:h-[86px] overflow-hidden -mt-2 md:-mt-4">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={SLIDES[active].word}
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -28 }}
-                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                className="block font-display text-[44px] sm:text-[58px] md:text-[72px] italic text-ivar-green"
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-ivar-forest/20 bg-white px-5 py-2.5 text-[11px] tracking-[0.18em] uppercase text-ivar-forest font-semibold mb-7">
+              <LineIcon name="leaf" size={14} stroke={1.8} />
+              Pure Natural Indian Snacking
+            </span>
+
+            <h1 className="font-sans text-[44px] sm:text-[56px] md:text-[66px] leading-[1.06] font-bold text-ivar-ink tracking-tight">
+              Everyday snacking,
+              <br />
+              <span className="font-display italic font-normal text-ivar-green">made wholesome.</span>
+            </h1>
+
+            <p className="mt-6 text-[16px] md:text-[18px] leading-relaxed text-ivar-muted max-w-[460px]">
+              Roasted makhana and date-based bites, made with natural ingredients — thoughtfully made, delivered fresh across India.
+            </p>
+
+            <div className="mt-9 flex flex-col sm:flex-row items-center gap-4">
+              <Link
+                href="/shop"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-ivar-forest text-white text-[14px] font-semibold rounded-full pl-6 pr-5 py-3.5 hover:bg-ivar-forestDeep transition-colors"
               >
-                {SLIDES[active].word}
-              </motion.span>
-            </AnimatePresence>
-          </span>
-        </h1>
+                Explore Menu
+                <LineIcon name="arrow" size={16} stroke={2} className="transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/find-ivar"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 border border-ivar-gold text-ivar-forestDeep text-[14px] font-semibold rounded-full pl-5 pr-4 py-3.5 hover:bg-ivar-gold/10 transition-colors"
+              >
+                <LineIcon name="search" size={15} stroke={1.9} className="text-ivar-gold" />
+                Find Ivar
+              </Link>
+            </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.58, duration: 0.6 }}
-          className="mt-7 text-[16px] md:text-[18px] leading-relaxed text-ivar-ink/80 max-w-[480px] mx-auto"
-          style={{ textShadow: "0 1px 12px rgba(255,255,255,0.8)" }}
-        >
-          From India&apos;s ingredients and food traditions to modern food products — natural, thoughtfully made and
-          designed for today&apos;s world.
-        </motion.p>
+            <div className="mt-11 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-[540px]">
+              {TRUST_BADGES.map((b) => (
+                <div key={b.title} className="flex items-center gap-2.5">
+                  <span className="size-10 rounded-full bg-white border border-ivar-forest/15 text-ivar-forest flex items-center justify-center shrink-0">
+                    <LineIcon name={b.icon} size={17} stroke={1.6} />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[12.5px] font-semibold text-ivar-ink leading-tight">{b.title}</p>
+                    <p className="text-[11px] text-ivar-muted leading-tight">{b.sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.72, duration: 0.6 }}
-          className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Link
-            href={SLIDES[active].href}
-            className="group inline-flex items-center gap-3 bg-ivar-forest text-white text-[14px] font-semibold rounded-full pl-6 pr-5 py-3.5 hover:bg-ivar-forestDeep transition-colors"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative"
           >
-            {SLIDES[active].cta}
-            <LineIcon name="arrow" size={16} stroke={2} className="transition-transform group-hover:translate-x-1" />
-          </Link>
-          <Link
-            href="/story"
-            className="text-ivar-forest text-[14px] font-semibold hover:underline underline-offset-4"
-            style={{ textShadow: "0 1px 12px rgba(255,255,255,0.8)" }}
-          >
-            Our Story
-          </Link>
-        </motion.div>
+            <div className="relative rounded-[28px] overflow-hidden aspect-[4/3.2]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/products/eat/makhana-crunch.jpg"
+                alt="Ivar makhana and snacks"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-10 flex items-center justify-center gap-2"
-        >
-          {SLIDES.map((s, i) => (
-            <button
-              key={s.img}
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => setActive(i)}
-              className={`h-1 rounded-full transition-all cursor-pointer ${
-                i === active ? "w-8 bg-ivar-forest" : "w-4 bg-ivar-forest/30"
-              }`}
-              suppressHydrationWarning
-            />
+            <span className="absolute -top-4 right-4 sm:right-8 inline-flex items-center gap-2 bg-ivar-gold text-ivar-forestDeep text-[12.5px] font-semibold rounded-full px-4 py-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.14)]">
+              <LineIcon name="star" size={14} stroke={0} className="fill-current" />
+              Loved Across India
+            </span>
+
+            <div className="absolute -bottom-5 left-4 sm:left-8 bg-white rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.12)] px-4 py-3.5 flex items-center gap-3">
+              <span className="size-9 rounded-full bg-ivar-forest/10 text-ivar-forest flex items-center justify-center shrink-0">
+                <LineIcon name="shield" size={17} stroke={1.8} />
+              </span>
+              <div>
+                <p className="text-[11px] font-bold tracking-wide text-ivar-ink uppercase leading-tight">No Preservatives</p>
+                <p className="text-[11px] text-ivar-muted leading-tight">100% Natural</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <div className="bg-ivar-forest py-4 overflow-hidden">
+        <div className="flex w-max animate-marquee">
+          {[...MARQUEE_WORDS, ...MARQUEE_WORDS].map((word, i) => (
+            <span key={i} className="flex items-center gap-8 px-8 text-[13px] tracking-[0.14em] uppercase font-semibold text-white/90 whitespace-nowrap">
+              {word}
+              <LineIcon name="leaf" size={13} stroke={2} className="text-ivar-gold shrink-0" />
+            </span>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </>
   );
 }

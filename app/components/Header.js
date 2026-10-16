@@ -112,6 +112,7 @@ export default function Header() {
   );
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
         scrolled ? "bg-white/85 backdrop-blur-md border-ivar-forest/10" : "bg-white border-transparent"
@@ -238,6 +239,7 @@ export default function Header() {
           </button>
         </div>
       </div>
+    </header>
 
       <AnimatePresence>
         {menuOpen && (
@@ -384,6 +386,6 @@ export default function Header() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
