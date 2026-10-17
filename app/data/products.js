@@ -687,6 +687,65 @@ const ALL_PRODUCTS = [
     nutrition: { kcal: 340, proteinG: 24, carbsG: 26, fatG: 16, fiberG: 6 },
     img: "/assets/products/eat/egg-avocado-power-bowl.jpg",
   },
+
+  // ---------- EAT — DateGo Natural Date Spread (new) ----------
+  {
+    id: 82,
+    name: "DateGo — Original",
+    group: "Eat",
+    cat: "Spreads",
+    price: 229,
+    desc: "Pure dates, rich taste — a natural date spread with no added sugar, goodness in every spread.",
+    ingredients: ["Dates", "Natural caramel notes"],
+    nutrition: { kcal: 110, proteinG: 1, carbsG: 26, fatG: 0, fiberG: 3 },
+    img: "/assets/products/eat/datego-spread-jar.jpg",
+  },
+  {
+    id: 83,
+    name: "DateGo — Cocoa",
+    group: "Eat",
+    cat: "Spreads",
+    price: 249,
+    desc: "Rich chocolate taste, naturally sweet — dates and cocoa blended into one indulgent spread.",
+    ingredients: ["Dates", "Cocoa"],
+    nutrition: { kcal: 118, proteinG: 1, carbsG: 27, fatG: 1, fiberG: 3 },
+    img: "/assets/products/eat/datego-spread-jar.jpg",
+  },
+  {
+    id: 84,
+    name: "DateGo — Pistachio",
+    group: "Eat",
+    cat: "Spreads",
+    price: 269,
+    desc: "Rich pistachio taste, naturally sweet — a date spread with real pistachio.",
+    ingredients: ["Dates", "Pistachio"],
+    nutrition: { kcal: 122, proteinG: 2, carbsG: 25, fatG: 3, fiberG: 3 },
+    img: "/assets/products/eat/datego-spread-jar.jpg",
+  },
+  {
+    id: 85,
+    name: "DateGo — Cinnamon & Clove",
+    group: "Eat",
+    cat: "Spreads",
+    price: 249,
+    desc: "Goodness of dates, cinnamon and clove — no added sugar, rich in natural energy.",
+    ingredients: ["Dates", "Cinnamon", "Clove"],
+    nutrition: { kcal: 112, proteinG: 1, carbsG: 26, fatG: 0, fiberG: 3 },
+    img: "/assets/products/eat/datego-cinnamon-clove-jar.jpg",
+  },
+
+  // ---------- EAT — Makhana Flavour Kit (new) ----------
+  {
+    id: 86,
+    name: "Makhana Flavour Kit",
+    group: "Eat",
+    cat: "Nuts, Seeds & Snacks",
+    price: 299,
+    desc: "Roasted makhana plus 5 flavour sachets — Classic Masala, Peri Peri, Pudina Masala, Cheese & Herbs, Himalayan Salt & Pepper. Mix, shake, make it yours.",
+    ingredients: ["Roasted fox nuts (makhana)", "5 flavour sachets"],
+    nutrition: { kcal: 120, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
+    img: "/assets/products/eat/makhana-flavour-kit-lineup.jpg",
+  },
 ];
 
 // Curated live catalog — every date- and makhana-related product (not just
@@ -698,9 +757,11 @@ const VISIBLE_IDS = [
   74, // Makhana — Pudina Masala
   75, // Makhana — Himalayan Salt
   76, // Makhana — Cheese & Herbs
-  62, // Date & Chocolate Protein Bites
-  63, // Mango Coconut Fruit Bites (contains dates)
-  64, // Millet Chocolate Bites (contains dates)
+  86, // Makhana Flavour Kit
+  82, // DateGo — Original
+  83, // DateGo — Cocoa
+  84, // DateGo — Pistachio
+  85, // DateGo — Cinnamon & Clove
 ];
 export const products = ALL_PRODUCTS.filter((p) => VISIBLE_IDS.includes(p.id));
 

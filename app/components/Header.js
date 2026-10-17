@@ -9,9 +9,10 @@ import LineIcon from "./LineIcon";
 import { WORKFORCE_ROLES } from "../data/workforceRoles";
 
 const DATE_GO_PRODUCTS = [
-  { href: "/product/62", label: "Date & Chocolate Protein Bites" },
-  { href: "/product/63", label: "Mango Coconut Fruit Bites" },
-  { href: "/product/64", label: "Millet Chocolate Bites" },
+  { href: "/product/82", label: "DateGo — Original" },
+  { href: "/product/83", label: "DateGo — Cocoa" },
+  { href: "/product/84", label: "DateGo — Pistachio" },
+  { href: "/product/85", label: "DateGo — Cinnamon & Clove" },
 ];
 
 const MAKHANA_OPTIONS = [

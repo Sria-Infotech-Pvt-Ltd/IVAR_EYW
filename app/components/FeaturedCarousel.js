@@ -9,9 +9,9 @@ import LineIcon from "./LineIcon";
 
 const FEATURED = [
   { id: 50, ratio: 1, points: ["Light & crunchy", "Rich in protein", "Roasted fox nuts, low calorie"] },
-  { id: 62, ratio: 1, points: ["Naturally sweet", "Protein rich", "Guilt-free energy boost"] },
-  { id: 63, ratio: 1, points: ["Tropical fruit", "Real coconut", "Natural energy"] },
-  { id: 64, ratio: 1, points: ["Wholesome millets", "Rich cocoa", "Nourishing indulgence"] },
+  { id: 82, ratio: 1, points: ["Pure dates", "No added sugar", "Rich in natural energy"] },
+  { id: 83, ratio: 1, points: ["Rich chocolate taste", "Naturally sweet", "Dates & cocoa"] },
+  { id: 86, ratio: 1, points: ["5 flavour sachets", "Mix, shake, enjoy", "Rich in protein"] },
 ];
 
 const items = FEATURED.map((f) => ({ ...f, product: products.find((p) => p.id === f.id) })).filter((f) => f.product);

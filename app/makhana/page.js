@@ -11,6 +11,7 @@ export const metadata = {
 };
 
 const FLAVOUR_IDS = [50, 73, 74, 75, 76];
+const KIT_ID = 86;
 const WEIGHT_OPTIONS = [
   { label: "Pouch", grams: 100 },
   { label: "Share Pack", grams: 200 },
@@ -19,22 +20,12 @@ const WEIGHT_OPTIONS = [
 
 export default function MakhanaPage() {
   const flavours = FLAVOUR_IDS.map((id) => products.find((p) => p.id === id)).filter(Boolean);
-  const product = flavours[0];
+  const kit = products.find((p) => p.id === KIT_ID);
 
   return (
     <main>
-      <section className="relative py-20 md:py-28 overflow-hidden bg-ivar-forestDeep">
-        <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/products/eat/makhana-hero-crunchy.jpeg"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover opacity-45"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ivar-forestDeep via-ivar-forestDeep/70 to-ivar-forestDeep/40" />
-        </div>
-        <div className="relative max-w-[1320px] mx-auto px-[6vw] w-full">
+      <section className="bg-ivar-forestDeep py-20 md:py-28">
+        <div className="max-w-[1320px] mx-auto px-[6vw] w-full">
           <nav aria-label="Breadcrumb" className="text-[12px] text-white/60 flex items-center gap-2 mb-6">
             <Link href="/" className="hover:text-white">Home</Link>
             <span aria-hidden="true">›</span>
@@ -70,6 +61,51 @@ export default function MakhanaPage() {
                 <BowlCard key={p.id} product={p} />
               ))}
             </div>
+
+            <RevealOnScroll className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div className="relative aspect-square rounded-2xl overflow-hidden order-2 md:order-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/assets/products/eat/makhana-light-snack-banner.jpg"
+                  alt="Makhana — light snack, big benefits"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="order-1 md:order-2">
+                <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-2">Why Makhana</p>
+                <h3 className="font-display text-[26px] md:text-[32px] text-ivar-ink mb-4">
+                  Light snack. Big benefits.
+                </h3>
+                <p className="text-[13.5px] text-ivar-muted">
+                  Roasted fox nuts, seasoned the Ivar way — rich in protein, low in calories and free of
+                  preservatives. A guilt-free crunch for any time of day.
+                </p>
+              </div>
+            </RevealOnScroll>
+
+            {kit && (
+              <RevealOnScroll className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center rounded-2xl bg-ivar-cream p-6 md:p-10">
+                <div className="relative aspect-[1145/1374] max-w-[340px] mx-auto w-full rounded-xl overflow-hidden bg-white order-2 md:order-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/assets/products/eat/makhana-flavour-kit-model.jpg" alt="Makhana Flavour Kit" className="w-full h-full object-cover" />
+                </div>
+                <div className="order-1 md:order-1">
+                  <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-2">New</p>
+                  <h3 className="font-display text-[24px] md:text-[28px] text-ivar-ink mb-3">One Makhana. Many Flavours.</h3>
+                  <p className="text-[13.5px] text-ivar-muted mb-5">
+                    Roasted makhana plus 5 flavour sachets — Classic Masala, Peri Peri, Pudina Masala, Cheese &amp; Herbs,
+                    Himalayan Salt &amp; Pepper. Mix, shake, make it yours.
+                  </p>
+                  <a
+                    href={`/product/${kit.id}`}
+                    className="inline-flex items-center gap-3 bg-ivar-forest text-white font-semibold text-sm rounded-full px-6 py-3.5 hover:bg-ivar-forestDeep transition-colors"
+                  >
+                    View Flavour Kit
+                    <LineIcon name="arrow" size={16} stroke={2} />
+                  </a>
+                </div>
+              </RevealOnScroll>
+            )}
 
             <RevealOnScroll id="weights" className="scroll-mt-24">
               <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-2">Weights / Chips</p>
