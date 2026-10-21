@@ -85,7 +85,7 @@ export default function IvarHero() {
             <div className="relative rounded-[28px] overflow-hidden aspect-[4/3.2]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/assets/products/eat/makhana-crunch.jpg"
+                src="/assets/products/eat/hero-main-banner.png"
                 alt="Ivar makhana and snacks"
                 className="w-full h-full object-cover"
               />

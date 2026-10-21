@@ -10,7 +10,7 @@ const CARDS = [
     title: "Ivar Foods",
     text: "Consumer-facing food products, made from India's ingredients.",
     href: "/shop",
-    img: "/assets/category-ivar-foods.png",
+    img: "/assets/products/eat/category-ivar-foods-v2.png",
     big: true,
   },
   {
@@ -18,21 +18,21 @@ const CARDS = [
     title: "Processed Foods",
     text: "Value-added processing that turns raw ingredients into everyday foods.",
     href: "/shop",
-    img: "/assets/products/eat/crunchy-nutrition.jpg",
+    img: "/assets/products/eat/category-processed-foods.png",
   },
   {
     n: "03",
     title: "Ingredients",
     text: "Indian ingredients and applications for B2B and food partners.",
     href: "/ingredients",
-    img: "/assets/category-ivar-ingredients.png",
+    img: "/assets/products/eat/category-ivar-ingredients-v2.png",
   },
   {
     n: "04",
     title: "Packaging",
     text: "Food-focused packaging that protects freshness and quality.",
     href: "/packaging",
-    img: "/assets/hero-veg-fruit-table.jpg",
+    img: "/assets/products/eat/category-packaging.png",
     wide: true,
   },
 ];

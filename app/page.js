@@ -33,7 +33,7 @@ export default function Home() {
       <FoodInnovationGrid />
       <HowItWorksSteps />
       <ImageTextSection
-        img="/assets/hero-veg-fruit-table.jpg"
+        img="/assets/products/eat/category-packaging.png"
         imgAlt="Ivar packaging"
         imageSide="right"
         eyebrow="Packaging"

@@ -87,7 +87,7 @@ export default function PackagingPage() {
 
           <RevealOnScroll y={0} delay={0.1} className="relative aspect-[4/5] lg:aspect-[4/4.5] overflow-hidden rounded-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/products/eat/makhana-crunch.jpg" alt="Ivar packaging" className="w-full h-full object-cover" />
+            <img src="/assets/products/eat/category-packaging.png" alt="Ivar packaging" className="w-full h-full object-cover" />
           </RevealOnScroll>
         </div>
       </section>

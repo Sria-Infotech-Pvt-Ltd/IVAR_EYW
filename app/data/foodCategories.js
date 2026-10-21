@@ -11,7 +11,7 @@ export const FOOD_CATEGORIES = [
     icon: "bag",
     tagline: "Healthy Snacking, The Indian Way.",
     text: "Delicious snacks made from India's finest ingredients like millets, makhana and more. Light, crunchy and full of goodness for your everyday moments.",
-    img: "/assets/products/eat/makhana-crunch.jpg",
+    img: "/assets/products/eat/makhana-snack-category.jpeg",
     cats: ["Nuts, Seeds & Snacks", "Energy Bites & Cookies", "Non-Veg Snacks"],
   },
   {
@@ -20,7 +20,7 @@ export const FOOD_CATEGORIES = [
     icon: "heart",
     tagline: "Start the Day the Wholesome Way.",
     text: "Wholesome breakfast mixes and grains, made to fuel a better morning.",
-    img: "/assets/products/eat/multigrain-breakfast-mix.jpg",
+    img: "/assets/products/eat/breakfast-category.jpeg",
     cats: ["Breakfast & Grains"],
   },
   {
@@ -29,7 +29,7 @@ export const FOOD_CATEGORIES = [
     icon: "flask",
     tagline: "Sip on Something Better.",
     text: "Teas, shots and everyday drinks made with natural ingredients.",
-    img: "/assets/products/eat/turmeric-latte.jpg",
+    img: "/assets/products/eat/beverages-category.jpeg",
     cats: ["Teas & Beverages", "Daily Shots"],
   },
   {
