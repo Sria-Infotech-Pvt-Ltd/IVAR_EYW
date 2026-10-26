@@ -106,7 +106,7 @@ export default function WorkforcePage() {
       </section>
 
       <DarkCTA
-        img="/assets/hero-couple-cooking.jpg"
+        img="/assets/products/eat/kitchen-cooking.png"
         eyebrow="Building People Power"
         title="Connecting People With Opportunities."
         text="Ivar Workforce is launching soon. Share your role requirements, headcount and location, and we'll reach out as soon as we're live."

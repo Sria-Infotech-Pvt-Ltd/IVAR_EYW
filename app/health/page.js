@@ -89,7 +89,7 @@ export default function HealthPage() {
       )}
 
       <DarkCTA
-        img="/assets/hero-veg-fruit-table.jpg"
+        img="/assets/products/eat/pantry-collection.png"
         eyebrow="Ivar Health"
         title="Balance, Built Into Everyday Life."
         text="From a morning shot to an evening routine — small rituals that add up to a healthier everyday."

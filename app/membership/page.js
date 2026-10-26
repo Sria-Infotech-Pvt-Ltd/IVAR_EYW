@@ -207,7 +207,7 @@ export default function MembershipPage() {
       </section>
 
       <DarkCTA
-        img="/assets/hero-couple-cooking.jpg"
+        img="/assets/products/eat/kitchen-cooking.png"
         eyebrow="Ready When You Are"
         title="Build Your Plan in the Next 2 Minutes."
         text="Every plan is fully customisable — meals, dates, people and delivery preferences, all in one builder."

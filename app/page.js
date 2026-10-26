@@ -44,12 +44,13 @@ export default function Home() {
       />
       <GoldCTABand />
       <DarkCTA
-        img="/assets/hero-grain-bowl.jpg"
+        img="/assets/products/eat/global-vision-banner.png"
         eyebrow="Our Global Vision"
         title="From Indian Roots to Global Opportunities."
         text="Building better food for a brighter tomorrow — Indian goodness, global possibilities."
         cta="Partner with Ivar"
         ctaHref="/contact"
+        overlay="bg-gradient-to-br from-ivar-forestDeep via-ivar-forestDeep/55 to-ivar-forestDeep/15"
       />
       <ContactCTABand />
     </main>

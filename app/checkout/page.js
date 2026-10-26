@@ -35,7 +35,7 @@ export default function CheckoutPage() {
       <PageHeader
         title="Checkout"
         subtitle="Enter your details to complete a demo order."
-        img="/assets/hero-smiling-woman.jpg"
+        img="/assets/products/eat/good-food-brighter-days.png"
       />
       <section className="max-w-[1200px] mx-auto px-[6vw] py-[70px] md:py-[90px]">
         <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-12">

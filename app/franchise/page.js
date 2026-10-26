@@ -62,7 +62,7 @@ export default function FranchisePage() {
 
           <RevealOnScroll y={0} delay={0.1} className="relative aspect-[4/5] lg:aspect-[4/4.5] overflow-hidden rounded-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/hero-vegan-overhead.jpg" alt="Partner with Ivar" className="w-full h-full object-cover" />
+            <img src="/assets/products/eat/franchise-partnership.png" alt="Partner with Ivar" className="w-full h-full object-cover" />
           </RevealOnScroll>
         </div>
       </section>

@@ -11,7 +11,7 @@ export const FOOD_CATEGORIES = [
     icon: "bag",
     tagline: "Healthy Snacking, The Indian Way.",
     text: "Delicious snacks made from India's finest ingredients like millets, makhana and more. Light, crunchy and full of goodness for your everyday moments.",
-    img: "/assets/products/eat/makhana-snack-category.jpeg",
+    img: "/assets/products/eat/snacks-namkeen-spread.png",
     cats: ["Nuts, Seeds & Snacks", "Energy Bites & Cookies", "Non-Veg Snacks"],
   },
   {
@@ -38,7 +38,7 @@ export const FOOD_CATEGORIES = [
     icon: "box",
     tagline: "Cooking Made Simple.",
     text: "Mixes and essentials that make home cooking quicker, without cutting corners.",
-    img: "/assets/products/eat/millet-mix.jpg",
+    img: "/assets/products/eat/ready-to-cook-upma.png",
     cats: ["Cooking Essentials", "Ready Mixes"],
   },
   {
@@ -47,7 +47,7 @@ export const FOOD_CATEGORIES = [
     icon: "check",
     tagline: "Good Food, Ready When You Are.",
     text: "Café favourites and protein bowls, ready whenever hunger strikes.",
-    img: "/assets/products/eat/classic-oats-bowl.jpg",
+    img: "/assets/products/eat/ready-to-eat-oats.png",
     cats: ["Café Favourites", "Protein Bowls"],
   },
   {
@@ -56,7 +56,7 @@ export const FOOD_CATEGORIES = [
     icon: "people",
     tagline: "Traditional Recipes, Modern Formats.",
     text: "Classic Indian recipes we're bringing into modern, everyday formats.",
-    img: "/assets/hero-veg-spices.jpg",
+    img: "/assets/products/eat/traditional-foods-thali.png",
     cats: [],
   },
   {
@@ -65,7 +65,7 @@ export const FOOD_CATEGORIES = [
     icon: "shield",
     tagline: "Fresh, Locked In.",
     text: "Frozen formats that keep Ivar's food fresh for longer.",
-    img: "/assets/hero-grain-bowl.jpg",
+    img: "/assets/products/eat/frozen-foods-favourites.png",
     cats: [],
   },
   {

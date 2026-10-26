@@ -126,7 +126,7 @@ export default function StoryPage() {
       />
 
       <DarkCTA
-        img="/assets/hero-grain-bowl.jpg"
+        img="/assets/products/eat/breakfast-spread.png"
         eyebrow="Our Global Vision"
         title="Building a Brighter Food Future, Together."
         text="Ivar is a work in progress by design — we keep listening, reformulating and adding to the range based on how people actually use it."

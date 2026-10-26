@@ -106,7 +106,7 @@ export default function IngredientsPage() {
       />
 
       <DarkCTA
-        img="/assets/hero-veg-fruit-table.jpg"
+        img="/assets/products/eat/pantry-collection.png"
         eyebrow="Ingredient Sourcing"
         title="Have an Ingredient in Mind?"
         text="Whether you're sourcing for your own products or curious about ours, our team is happy to talk ingredients."

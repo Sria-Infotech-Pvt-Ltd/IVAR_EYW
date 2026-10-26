@@ -4,14 +4,14 @@ import Link from "next/link";
 import RevealOnScroll from "./RevealOnScroll";
 import LineIcon from "./LineIcon";
 
-export default function DarkCTA({ img, eyebrow, title, text, cta, ctaHref, align = "left" }) {
+export default function DarkCTA({ img, eyebrow, title, text, cta, ctaHref, align = "left", overlay = "bg-gradient-to-t from-ivar-forestDeep via-ivar-forestDeep/70 to-ivar-forestDeep/30" }) {
   const alignClass = align === "center" ? "items-center text-center mx-auto" : "items-start text-left";
   return (
     <section className="relative min-h-[480px] md:min-h-[560px] flex items-center overflow-hidden bg-ivar-forestDeep">
       <div className="absolute inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={img} alt="" aria-hidden="true" className="w-full h-full object-cover opacity-45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ivar-forestDeep via-ivar-forestDeep/70 to-ivar-forestDeep/30" />
+        <div className={`absolute inset-0 ${overlay}`} />
       </div>
 
       <div className={`relative max-w-[1500px] mx-auto px-[6vw] w-full flex flex-col ${alignClass}`}>

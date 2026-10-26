@@ -109,7 +109,7 @@ export default function ExportPage() {
       </section>
 
       <DarkCTA
-        img="/assets/hero-veg-fruit-table.jpg"
+        img="/assets/products/eat/pantry-collection.png"
         eyebrow="Importers & Distributors"
         title="Looking to Bring Ivar to Your Market?"
         text="Share your country, target categories and expected volumes — our export team will get back with pricing and MOQs."

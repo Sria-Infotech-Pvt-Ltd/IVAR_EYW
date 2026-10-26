@@ -75,7 +75,7 @@ export default function FindIvarPage() {
 
           <RevealOnScroll y={0} delay={0.1} className="relative aspect-[4/5] lg:aspect-[4/4.5] overflow-hidden rounded-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/hero-veg-fruit-table.jpg" alt="Ivar delivered fresh" className="w-full h-full object-cover" />
+            <img src="/assets/products/eat/find-ivar-hero.png" alt="Ivar delivered fresh" className="w-full h-full object-cover" />
           </RevealOnScroll>
         </div>
       </section>
@@ -168,13 +168,14 @@ export default function FindIvarPage() {
       </section>
 
       <DarkCTA
-        img="/assets/hero-grain-bowl.jpg"
+        img="/assets/products/eat/find-ivar-delivery.png"
         eyebrow="Bring Ivar To You"
         title="Not in Your City Yet?"
         text="Tell us where you are — it helps us prioritise where to deliver and partner with next."
         cta="Get in Touch"
         ctaHref="/contact"
         align="center"
+        overlay="bg-gradient-to-b from-ivar-forestDeep/25 via-ivar-forestDeep/65 to-ivar-forestDeep/20"
       />
     </main>
   );
