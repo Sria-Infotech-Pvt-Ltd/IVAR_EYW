@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import LineIcon from "./LineIcon";
 
 const STAGES = [
-  { label: "Indian Farms", sub: "Rich natural ingredients", img: "/assets/hero-veg-fruit-table.jpg" },
-  { label: "Traditional Ingredients", sub: "India's food heritage", img: "/assets/hero-veg-spices.jpg" },
-  { label: "Food Science", sub: "Modern innovation", img: "/assets/products/eat/immunity-shield.jpg" },
-  { label: "Modern Products", sub: "Healthy & convenient", img: "/assets/products/eat/makhana-crunch.jpg" },
-  { label: "Packaging", sub: "Better for food", img: "/assets/products/eat/crunchy-nutrition.jpg" },
-  { label: "Global Markets", sub: "From India to the world", img: "/assets/hero-grain-bowl.jpg" },
+  { label: "Indian Farms", sub: "Rich natural ingredients", img: "/assets/products/eat/journey-indian-farms.png" },
+  { label: "Traditional Ingredients", sub: "India's food heritage", img: "/assets/products/eat/journey-traditional-ingredients.png" },
+  { label: "Food Science", sub: "Modern innovation", img: "/assets/products/eat/journey-food-science.png" },
+  { label: "Modern Products", sub: "Healthy & convenient", img: "/assets/products/eat/journey-modern-products.jpeg" },
+  { label: "Packaging", sub: "Better for food", img: "/assets/products/eat/journey-packaging.png" },
+  { label: "Global Markets", sub: "From India to the world", img: "/assets/products/eat/journey-global-markets.png" },
 ];
 
 export default function IndiaJourneyCircles() {
