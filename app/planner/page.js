@@ -168,7 +168,7 @@ export default function PlannerPage() {
         <PageHeader
           title="Ivar Nutrition Planner"
           subtitle="Your personalised plan is ready."
-          img="/assets/hero-veg-spices.jpg"
+          img="/assets/products/eat/planner-hero-banner.png"
         />
         <section className="max-w-[900px] mx-auto px-[6vw] py-[70px] md:py-[90px] space-y-6">
           <div className="rounded-3xl bg-ivar-dark text-white p-6">
@@ -268,7 +268,7 @@ export default function PlannerPage() {
       <PageHeader
         title="Ivar Nutrition Planner"
         subtitle="A quick, free nutrition check-in — get your daily targets and a few Ivar picks to match."
-        img="/assets/hero-veg-spices.jpg"
+        img="/assets/products/eat/planner-hero-banner.png"
       />
 
       <section className="max-w-[900px] mx-auto px-[6vw] py-[70px] md:py-[90px]">

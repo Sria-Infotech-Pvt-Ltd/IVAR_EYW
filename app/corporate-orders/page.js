@@ -81,7 +81,7 @@ export default function CorporateOrdersPage() {
       <PageHeader
         title="Healthy Corporate Meal Solutions"
         subtitle="Fresh, nutritious meals delivered daily for teams, offices, startups, events, and employee health programs."
-        img="/assets/products/eat/corporate-healthy-meals.png"
+        img="/assets/products/eat/corporate-order-fulfillment.png"
       />
 
       <section className="max-w-[1200px] mx-auto px-[6vw] py-[70px] md:py-[90px]">

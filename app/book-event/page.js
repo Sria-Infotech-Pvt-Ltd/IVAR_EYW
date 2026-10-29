@@ -139,7 +139,7 @@ export default function BookEventPage() {
       </section>
 
       <DarkCTA
-        img="/assets/hero-grain-bowl.jpg"
+        img="/assets/products/eat/book-event-cooking-banner.png"
         eyebrow="Bring Ivar To You"
         title="Hosting Something Soon?"
         text="Share your event date, headcount and city — we'll put together a menu and quote for you."

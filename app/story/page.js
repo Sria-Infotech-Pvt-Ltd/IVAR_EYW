@@ -1,4 +1,5 @@
 import RevealOnScroll from "../components/RevealOnScroll";
+import PageHeader from "../components/PageHeader";
 import ImageTextSection from "../components/ImageTextSection";
 import ProcessTimeline from "../components/ProcessTimeline";
 import DarkCTA from "../components/DarkCTA";
@@ -33,20 +34,12 @@ const PROCESS_STEPS = [
 export default function StoryPage() {
   return (
     <main>
-      <section className="relative bg-ivar-ivory overflow-hidden min-h-[60vh] flex items-center">
-        <div className="max-w-[760px] mx-auto px-[6vw] text-center">
-          <RevealOnScroll y={20}>
-            <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-5">About Ivar</p>
-            <h1 className="font-display text-editorial-hero leading-[1.05] text-ivar-ink mb-6">
-              From Indian Roots to a Better Food Future.
-            </h1>
-            <p className="text-editorial-body text-ivar-muted max-w-[540px] mx-auto">
-              Ivar started with a simple observation: India&apos;s ingredients and food traditions deserved better,
-              modern formats — without losing what made them good in the first place.
-            </p>
-          </RevealOnScroll>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="About Ivar"
+        title="From Indian Roots to a Better Food Future."
+        subtitle="Ivar started with a simple observation: India's ingredients and food traditions deserved better, modern formats — without losing what made them good in the first place."
+        img="/assets/products/eat/pantry-collection.png"
+      />
 
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-[1320px] mx-auto px-[6vw]">

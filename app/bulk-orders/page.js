@@ -25,6 +25,7 @@ export default function BulkOrdersPage() {
         eyebrow="Bulk & Custom Orders"
         title="Built Around Your Order."
         subtitle="Custom product combinations, company branding and volume pricing for large orders."
+        img="/assets/products/eat/bulk-orders-hero.png"
       />
 
       <section className="max-w-[1320px] mx-auto px-[6vw] py-10 md:py-16">
