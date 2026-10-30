@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
 import { money } from "../data/products";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 
 const fields = [
   { id: "firstname", placeholder: "First Name" },
@@ -32,7 +32,7 @@ export default function CheckoutPage() {
 
   return (
     <main>
-      <PageHeader
+      <SplitHero
         title="Checkout"
         subtitle="Enter your details to complete a demo order."
         img="/assets/products/eat/good-food-brighter-days.png"

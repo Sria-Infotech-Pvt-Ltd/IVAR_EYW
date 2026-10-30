@@ -1,4 +1,4 @@
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 import RevealOnScroll from "../components/RevealOnScroll";
 import LineIcon from "../components/LineIcon";
 import { buildWhatsAppLink } from "../lib/whatsapp";
@@ -21,7 +21,7 @@ export default function BulkOrdersPage() {
 
   return (
     <main>
-      <PageHeader
+      <SplitHero
         eyebrow="Bulk & Custom Orders"
         title="Built Around Your Order."
         subtitle="Custom product combinations, company branding and volume pricing for large orders."

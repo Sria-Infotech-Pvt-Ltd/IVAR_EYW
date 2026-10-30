@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { products, money } from "../data/products";
 import { buildWhatsAppLink } from "../lib/whatsapp";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 
 const TOTAL_STEPS = 7;
 const SUBSCRIPTION_DISCOUNT = { weekly: 10, monthly: 15 };
@@ -137,7 +137,7 @@ export default function PlansPage() {
 
   return (
     <main>
-      <PageHeader
+      <SplitHero
         eyebrow="Subscribe to Ivar"
         title="Build the perfect meal plan for you."
         subtitle="Pick your meals, choose delivery dates and pause anytime. Save up to 15% with weekly and monthly plans."

@@ -2,6 +2,7 @@ import Link from "next/link";
 import LineIcon from "../components/LineIcon";
 import BowlCard from "../components/BowlCard";
 import RevealOnScroll from "../components/RevealOnScroll";
+import SplitHero from "../components/SplitHero";
 import { products } from "../data/products";
 
 export const metadata = {
@@ -17,33 +18,22 @@ export default function DateGoPage() {
 
   return (
     <main>
-      <section className="relative py-20 md:py-28 overflow-hidden bg-ivar-forestDeep">
-        <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/products/eat/datego-original-banner.jpg"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover opacity-45"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-ivar-forestDeep via-ivar-forestDeep/70 to-ivar-forestDeep/40" />
-        </div>
-        <div className="relative max-w-[1320px] mx-auto px-[6vw] w-full">
-          <nav aria-label="Breadcrumb" className="text-[12px] text-white/60 flex items-center gap-2 mb-6">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span aria-hidden="true">›</span>
-            <Link href="/shop" className="hover:text-white">Menu</Link>
-            <span aria-hidden="true">›</span>
-            <span className="text-white">DateGo</span>
-          </nav>
-          <h1 className="font-display text-[32px] md:text-[46px] leading-[1.08] text-white max-w-[560px]">
-            DateGo <span className="italic text-ivar-sage">— Natural Date Spread.</span>
-          </h1>
-          <p className="text-white/70 text-base md:text-lg mt-3 max-w-[520px]">
-            Pure dates, no added sugar — goodness in every spread.
-          </p>
-        </div>
-      </section>
+      <div className="bg-white max-w-[1500px] mx-auto px-[4vw] pt-6">
+        <nav aria-label="Breadcrumb" className="text-[12px] text-ivar-muted flex items-center gap-2">
+          <Link href="/" className="hover:text-ivar-forest">Home</Link>
+          <span aria-hidden="true">›</span>
+          <Link href="/shop" className="hover:text-ivar-forest">Menu</Link>
+          <span aria-hidden="true">›</span>
+          <span className="text-ivar-ink">DateGo</span>
+        </nav>
+      </div>
+
+      <SplitHero
+        title={<>DateGo <span className="italic text-ivar-green">— Natural Date Spread.</span></>}
+        subtitle="Pure dates, no added sugar — goodness in every spread."
+        img="/assets/products/eat/datego-harvest-splash.png"
+        imgAlt="DateGo natural date spread"
+      />
 
       <section className="bg-white py-14 md:py-20">
         <div className="max-w-[1320px] mx-auto px-[6vw]">

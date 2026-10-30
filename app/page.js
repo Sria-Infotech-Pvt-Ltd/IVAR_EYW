@@ -2,7 +2,8 @@ import IvarHero from "./components/IvarHero";
 import QuickActionsBand from "./components/QuickActionsBand";
 import SignatureFeature from "./components/SignatureFeature";
 import AllCollections from "./components/AllCollections";
-import FeaturedCarousel from "./components/FeaturedCarousel";
+import CollectionRows from "./components/CollectionRows";
+import IdealCombo from "./components/IdealCombo";
 import HowItWorksSteps from "./components/HowItWorksSteps";
 import ImageTextSection from "./components/ImageTextSection";
 
@@ -13,7 +14,8 @@ export default function Home() {
       <QuickActionsBand />
       <SignatureFeature />
       <AllCollections />
-      <FeaturedCarousel />
+      <CollectionRows />
+      <IdealCombo />
       <HowItWorksSteps />
       <ImageTextSection
         img="/assets/products/eat/category-packaging.png"

@@ -139,7 +139,7 @@ const ALL_PRODUCTS = [
     desc: "Light. Crunchy. Nutritious. Roasted fox nuts with Himalayan salt and pepper — rich in protein, low calorie.",
     ingredients: ["Roasted fox nuts (makhana)", "Himalayan pink salt", "Black pepper"],
     nutrition: { kcal: 120, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
-    img: "/assets/products/eat/makhana-crunch.jpg",
+    img: "/assets/products/eat/makhana-classic-pack.png",
   },
   {
     id: 73,
@@ -150,7 +150,7 @@ const ALL_PRODUCTS = [
     desc: "Light. Crunchy. Nutritious. Roasted fox nuts tossed in peri-peri seasoning — rich in protein, low calorie.",
     ingredients: ["Roasted fox nuts (makhana)", "Peri-peri seasoning", "Rock salt"],
     nutrition: { kcal: 122, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
-    img: "/assets/products/eat/makhana-crunch.jpg",
+    img: "/assets/products/eat/makhana-peri-peri-pack.png",
   },
   {
     id: 74,
@@ -161,7 +161,7 @@ const ALL_PRODUCTS = [
     desc: "Light. Crunchy. Nutritious. Roasted fox nuts with a tangy pudina masala blend — rich in protein, low calorie.",
     ingredients: ["Roasted fox nuts (makhana)", "Mint (pudina) masala blend", "Rock salt"],
     nutrition: { kcal: 121, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
-    img: "/assets/products/eat/makhana-crunch.jpg",
+    img: "/assets/products/eat/makhana-pudina-pack.png",
   },
   {
     id: 75,
@@ -172,7 +172,7 @@ const ALL_PRODUCTS = [
     desc: "Light. Crunchy. Nutritious. Roasted fox nuts, simply seasoned with Himalayan salt — rich in protein, low calorie.",
     ingredients: ["Roasted fox nuts (makhana)", "Himalayan pink salt"],
     nutrition: { kcal: 118, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
-    img: "/assets/products/eat/makhana-crunch.jpg",
+    img: "/assets/products/eat/makhana-himalayan-salt-pack.png",
   },
   {
     id: 76,
@@ -698,7 +698,7 @@ const ALL_PRODUCTS = [
     desc: "Pure dates, rich taste — a natural date spread with no added sugar, goodness in every spread.",
     ingredients: ["Dates", "Natural caramel notes"],
     nutrition: { kcal: 110, proteinG: 1, carbsG: 26, fatG: 0, fiberG: 3 },
-    img: "/assets/products/eat/datego-spread-jar.jpg",
+    img: "/assets/products/eat/datego-original-pack.jpeg",
   },
   {
     id: 83,
@@ -709,7 +709,7 @@ const ALL_PRODUCTS = [
     desc: "Rich chocolate taste, naturally sweet — dates and cocoa blended into one indulgent spread.",
     ingredients: ["Dates", "Cocoa"],
     nutrition: { kcal: 118, proteinG: 1, carbsG: 27, fatG: 1, fiberG: 3 },
-    img: "/assets/products/eat/datego-spread-jar.jpg",
+    img: "/assets/products/eat/datego-cocoa-pack.png",
   },
   {
     id: 84,
@@ -720,7 +720,7 @@ const ALL_PRODUCTS = [
     desc: "Rich pistachio taste, naturally sweet — a date spread with real pistachio.",
     ingredients: ["Dates", "Pistachio"],
     nutrition: { kcal: 122, proteinG: 2, carbsG: 25, fatG: 3, fiberG: 3 },
-    img: "/assets/products/eat/datego-spread-jar.jpg",
+    img: "/assets/products/eat/datego-pistachio-pack.png",
   },
   {
     id: 85,
@@ -731,7 +731,7 @@ const ALL_PRODUCTS = [
     desc: "Goodness of dates, cinnamon and clove — no added sugar, rich in natural energy.",
     ingredients: ["Dates", "Cinnamon", "Clove"],
     nutrition: { kcal: 112, proteinG: 1, carbsG: 26, fatG: 0, fiberG: 3 },
-    img: "/assets/products/eat/datego-cinnamon-clove-jar.jpg",
+    img: "/assets/products/eat/datego-cinnamon-clove-pack.png",
   },
 
   // ---------- EAT — Makhana Flavour Kit (new) ----------
@@ -744,7 +744,7 @@ const ALL_PRODUCTS = [
     desc: "Roasted makhana plus 5 flavour sachets — Classic Masala, Peri Peri, Pudina Masala, Cheese & Herbs, Himalayan Salt & Pepper. Mix, shake, make it yours.",
     ingredients: ["Roasted fox nuts (makhana)", "5 flavour sachets"],
     nutrition: { kcal: 120, proteinG: 4, carbsG: 20, fatG: 3, fiberG: 2 },
-    img: "/assets/products/eat/makhana-flavour-kit-lineup.jpg",
+    img: "/assets/products/eat/makhana-flavour-lineup-new.png",
   },
 ];
 

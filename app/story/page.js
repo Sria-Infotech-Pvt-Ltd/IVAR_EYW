@@ -1,5 +1,5 @@
 import RevealOnScroll from "../components/RevealOnScroll";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 import WhatIvarDoes from "../components/WhatIvarDoes";
 import ComparisonSection from "../components/ComparisonSection";
 import IndiaJourneyCircles from "../components/IndiaJourneyCircles";
@@ -37,7 +37,7 @@ const PROCESS_STEPS = [
 export default function StoryPage() {
   return (
     <main>
-      <PageHeader
+      <SplitHero
         eyebrow="About Ivar"
         title="From Indian Roots to a Better Food Future."
         subtitle="Ivar started with a simple observation: India's ingredients and food traditions deserved better, modern formats — without losing what made them good in the first place."

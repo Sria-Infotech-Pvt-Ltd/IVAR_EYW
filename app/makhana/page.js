@@ -4,6 +4,7 @@ import BowlCard from "../components/BowlCard";
 import RevealOnScroll from "../components/RevealOnScroll";
 import IngredientToProduct from "../components/IngredientToProduct";
 import MakhanaStory from "../components/MakhanaStory";
+import SplitHero from "../components/SplitHero";
 import { products } from "../data/products";
 
 export const metadata = {
@@ -26,27 +27,24 @@ export default function MakhanaPage() {
 
   return (
     <main>
-      <section className="bg-ivar-forestDeep py-20 md:py-28">
-        <div className="max-w-[1320px] mx-auto px-[6vw] w-full">
-          <nav aria-label="Breadcrumb" className="text-[12px] text-white/60 flex items-center gap-2 mb-6">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span aria-hidden="true">›</span>
-            <Link href="/shop" className="hover:text-white">Menu</Link>
-            <span aria-hidden="true">›</span>
-            <span className="text-white">Makhana</span>
-          </nav>
-          <h1 className="font-display text-[32px] md:text-[46px] leading-[1.08] text-white max-w-[560px]">
-            Makhana <span className="italic text-ivar-sage">— Flavoured & By Weight.</span>
-          </h1>
-          <p className="text-white/70 text-base md:text-lg mt-3 max-w-[520px]">
-            Light, crunchy roasted fox nuts — seasoned for flavour, packed for every craving.
-          </p>
-          <a href="#flavoured" className="mt-8 inline-flex items-center gap-3 bg-white text-ivar-forest text-[14px] font-semibold rounded-full pl-6 pr-5 py-3.5 hover:bg-ivar-sage transition-colors">
-            Explore Flavours
-            <LineIcon name="arrow" size={16} stroke={2} />
-          </a>
-        </div>
-      </section>
+      <div className="bg-white max-w-[1500px] mx-auto px-[4vw] pt-6">
+        <nav aria-label="Breadcrumb" className="text-[12px] text-ivar-muted flex items-center gap-2">
+          <Link href="/" className="hover:text-ivar-forest">Home</Link>
+          <span aria-hidden="true">›</span>
+          <Link href="/shop" className="hover:text-ivar-forest">Menu</Link>
+          <span aria-hidden="true">›</span>
+          <span className="text-ivar-ink">Makhana</span>
+        </nav>
+      </div>
+
+      <SplitHero
+        title={<>Makhana <span className="italic text-ivar-green">— Flavoured & By Weight.</span></>}
+        subtitle="Light, crunchy roasted fox nuts — seasoned for flavour, packed for every craving."
+        cta="Explore Flavours"
+        ctaHref="#flavoured"
+        img="/assets/products/eat/hero-makhana-splash.png"
+        imgAlt="Ivar roasted makhana"
+      />
 
       <IngredientToProduct />
 

@@ -2,65 +2,100 @@ import Link from "next/link";
 import RevealOnScroll from "./RevealOnScroll";
 import LineIcon from "./LineIcon";
 
-const ACTIONS = [
-  {
-    href: "/build",
-    icon: "box",
-    title: "Build a Box",
-    text: "Mix bases, proteins and snacks into your own custom box.",
-    cta: "Start building",
-  },
+// The primary action gets a real featured panel (photo + overlay copy);
+// the rest sit beside it as a compact stacked list — not three identical
+// boxes repeating the same shape and weight.
+const FEATURED = {
+  href: "/build",
+  icon: "box",
+  title: "Build a Box",
+  text: "Mix bases, proteins and snacks into your own custom box — calories and price update live.",
+  cta: "Start building",
+  img: "/assets/products/eat/ready-to-cook-upma.png",
+};
+
+const LIST_ACTIONS = [
   {
     href: "/planner",
     icon: "scope",
     title: "Nutrition Planner",
     text: "A free nutrition check-in with daily targets and picks for you.",
-    cta: "Get my plan",
   },
   {
     href: "/plans",
     icon: "truck",
     title: "Subscription Plans",
     text: "Pick your meals, set delivery days and save up to 15%.",
-    cta: "See plans",
   },
 ];
 
 export default function QuickActionsBand() {
   return (
-    <section className="bg-ivar-cream py-16 md:py-24">
-      <div className="max-w-[1500px] mx-auto px-[4vw]">
-        <RevealOnScroll className="rounded-3xl bg-ivar-forest px-6 py-10 md:p-14">
-          <div className="max-w-[560px] mb-10 md:mb-14">
-            <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-sage font-semibold mb-4">
-              Find Your Routine
-            </p>
-            <h2 className="font-display text-editorial-section leading-[1.1] text-white">
-              Everyday food, built your way.
-            </h2>
-          </div>
+    <section className="bg-white py-10 md:py-16">
+      <div className="max-w-[1200px] mx-auto px-[15px] md:px-[50px]">
+        <div className="mb-8 md:mb-10">
+          <p className="text-[11px] tracking-[0.2em] uppercase text-ivar-forest font-semibold mb-3">
+            Find Your Routine
+          </p>
+          <h2 className="text-[28px] md:text-[34px] font-normal text-ivar-ink leading-tight">
+            Everyday food, built your way.
+          </h2>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {ACTIONS.map((a, i) => (
-              <RevealOnScroll key={a.href} delay={i * 0.08}>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-4 md:gap-5">
+          <RevealOnScroll>
+            <Link
+              href={FEATURED.href}
+              className="group relative block h-full min-h-[320px] overflow-hidden"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={FEATURED.img}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ivar-ink/85 via-ivar-ink/35 to-transparent" />
+
+              <div className="relative h-full flex flex-col justify-end p-7 md:p-9">
+                <span className="size-10 rounded-full bg-white/15 text-white flex items-center justify-center mb-5">
+                  <LineIcon name={FEATURED.icon} size={17} stroke={1.6} />
+                </span>
+                <h3 className="text-[22px] md:text-[26px] text-white mb-2">{FEATURED.title}</h3>
+                <p className="text-[13.5px] leading-relaxed text-white/75 max-w-[360px] mb-5">{FEATURED.text}</p>
+                <span className="inline-flex w-max items-center gap-2 px-5 h-10 bg-white text-ivar-ink text-[13px] font-semibold">
+                  {FEATURED.cta}
+                  <LineIcon name="arrow" size={14} stroke={2.2} className="transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </RevealOnScroll>
+
+          <div className="flex flex-col divide-y divide-black/8 border border-black/8">
+            {LIST_ACTIONS.map((a, i) => (
+              <RevealOnScroll key={a.href} delay={i * 0.08} className="flex-1">
                 <Link
                   href={a.href}
-                  className="group block h-full rounded-2xl bg-white/[0.06] border border-white/10 p-6 hover:bg-white/10 hover:border-white/20 transition-colors"
+                  className="group flex items-start gap-4 h-full p-6 hover:bg-ivar-surface transition-colors"
                 >
-                  <span className="size-11 rounded-full bg-white/10 text-white flex items-center justify-center mb-6">
-                    <LineIcon name={a.icon} size={19} stroke={1.6} />
+                  <span className="size-10 rounded-full bg-ivar-surface border border-ivar-forest/15 text-ivar-forest flex items-center justify-center shrink-0">
+                    <LineIcon name={a.icon} size={17} stroke={1.6} />
                   </span>
-                  <h3 className="font-display text-[19px] text-white mb-2">{a.title}</h3>
-                  <p className="text-[13px] leading-relaxed text-white/60 mb-5">{a.text}</p>
-                  <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-ivar-sage">
-                    {a.cta}
-                    <LineIcon name="arrow" size={14} stroke={2.2} className="transition-transform group-hover:translate-x-1" />
-                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-[16px] text-ivar-ink mb-1.5">{a.title}</h3>
+                    <p className="text-[12.5px] leading-relaxed text-ivar-slate/70">{a.text}</p>
+                  </div>
+                  <LineIcon
+                    name="arrow"
+                    size={14}
+                    stroke={2.2}
+                    className="ml-auto mt-1 shrink-0 text-ivar-forest transition-transform group-hover:translate-x-1"
+                  />
                 </Link>
               </RevealOnScroll>
             ))}
           </div>
-        </RevealOnScroll>
+        </div>
       </div>
     </section>
   );

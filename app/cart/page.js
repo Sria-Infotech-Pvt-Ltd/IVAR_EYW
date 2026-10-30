@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCart } from "../context/CartContext";
 import { useProductModal } from "../context/ProductModalContext";
 import { money } from "../data/products";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 import { buildWhatsAppLink } from "../lib/whatsapp";
 
 export default function CartPage() {
@@ -13,7 +13,7 @@ export default function CartPage() {
 
   return (
     <main>
-      <PageHeader
+      <SplitHero
         title="Your Cart"
         subtitle="Review your items before checkout."
         img="/assets/hero-veg-fruit-table.jpg"

@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 import { useProductModal } from "../context/ProductModalContext";
 import { products as allProducts } from "../data/products";
 import { buildWhatsAppLink } from "../lib/whatsapp";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 import IvarLoader from "../components/IvarLoader";
 import LineIcon from "../components/LineIcon";
 import { fetchWithTimeout } from "../lib/fetchWithTimeout";
@@ -165,7 +165,7 @@ export default function PlannerPage() {
   if (report) {
     return (
       <main>
-        <PageHeader
+        <SplitHero
           title="Ivar Nutrition Planner"
           subtitle="Your personalised plan is ready."
           img="/assets/products/eat/planner-hero-banner.png"
@@ -265,7 +265,7 @@ export default function PlannerPage() {
 
   return (
     <main>
-      <PageHeader
+      <SplitHero
         title="Ivar Nutrition Planner"
         subtitle="A quick, free nutrition check-in — get your daily targets and a few Ivar picks to match."
         img="/assets/products/eat/planner-hero-banner.png"

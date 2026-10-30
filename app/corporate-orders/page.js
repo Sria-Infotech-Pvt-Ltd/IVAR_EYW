@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 import { buildWhatsAppLink } from "../lib/whatsapp";
 import { products, money } from "../data/products";
 import {
@@ -78,7 +78,7 @@ export default function CorporateOrdersPage() {
 
   return (
     <main>
-      <PageHeader
+      <SplitHero
         title="Healthy Corporate Meal Solutions"
         subtitle="Fresh, nutritious meals delivered daily for teams, offices, startups, events, and employee health programs."
         img="/assets/products/eat/corporate-order-fulfillment.png"

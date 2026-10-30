@@ -1,6 +1,6 @@
 import { products } from "../data/products";
 import BowlCard from "../components/BowlCard";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 
 export const metadata = { title: "Breakfast — Ivar" };
 
@@ -10,7 +10,7 @@ export default function BreakfastPage() {
   );
   return (
     <main>
-      <PageHeader
+      <SplitHero
         eyebrow="Start the day right"
         title="Breakfast"
         subtitle="Wholesome mixes, grains and café favourites for a better morning."

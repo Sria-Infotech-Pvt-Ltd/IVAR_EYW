@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { products, money } from "../data/products";
 import { useCart } from "../context/CartContext";
-import PageHeader from "../components/PageHeader";
+import SplitHero from "../components/SplitHero";
 
 const MEALS = [
   { id: "breakfast", label: "Breakfast" },
@@ -169,7 +169,7 @@ export default function BuildPage() {
 
   return (
     <main>
-      <PageHeader
+      <SplitHero
         eyebrow="Box Builder"
         title="Design your perfect box"
         subtitle="Base included. Pick a base, mix proteins, layer add-ons and snacks. Calories, macros and price update live."
