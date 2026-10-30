@@ -1,5 +1,8 @@
 import RevealOnScroll from "../components/RevealOnScroll";
 import PageHeader from "../components/PageHeader";
+import WhatIvarDoes from "../components/WhatIvarDoes";
+import ComparisonSection from "../components/ComparisonSection";
+import IndiaJourneyCircles from "../components/IndiaJourneyCircles";
 import ImageTextSection from "../components/ImageTextSection";
 import ProcessTimeline from "../components/ProcessTimeline";
 import DarkCTA from "../components/DarkCTA";
@@ -63,6 +66,10 @@ export default function StoryPage() {
         </div>
       </section>
 
+      <WhatIvarDoes />
+
+      <ComparisonSection />
+
       <ImageTextSection
         img="/assets/hero-couple-cooking.jpg"
         imgAlt="Cooking with Ivar ingredients"
@@ -105,6 +112,8 @@ export default function StoryPage() {
       </section>
 
       <ProcessTimeline eyebrow="Our Process" title="From farm to a healthier tomorrow." steps={PROCESS_STEPS} dark />
+
+      <IndiaJourneyCircles />
 
       <ImageTextSection
         img="/assets/hero-veg-fruit-table.jpg"

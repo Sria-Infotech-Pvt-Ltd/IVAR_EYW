@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useProductModal } from "../context/ProductModalContext";
+import { useCart } from "../context/CartContext";
 import { money } from "../data/products";
 import { buildWhatsAppLink } from "../lib/whatsapp";
 
@@ -11,6 +12,7 @@ const DETAILS_LABEL = {
 
 export default function ProductModal() {
   const { product, closeProduct } = useProductModal();
+  const { add } = useCart();
 
   useEffect(() => {
     if (!product) return;
@@ -43,7 +45,7 @@ export default function ProductModal() {
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-10 md:p-8">
-          <div className="bg-[#ECECE9] h-[240px] md:h-[420px] md:rounded-2xl overflow-hidden">
+          <div className="bg-ivar-surface h-[240px] md:h-[420px] md:rounded-2xl overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.img}
@@ -77,7 +79,7 @@ export default function ProductModal() {
                   {product.ingredients.map((item) => (
                     <li
                       key={item}
-                      className="text-xs bg-[#ECECE9] text-ivar-text rounded-full px-3 py-1.5"
+                      className="text-xs bg-ivar-surface text-ivar-text rounded-[4px] px-3 py-1.5"
                     >
                       {item}
                     </li>
@@ -86,12 +88,22 @@ export default function ProductModal() {
               </div>
             )}
 
-            <div className="flex items-center gap-4 mt-6 flex-wrap">
+            <div className="flex items-center gap-3 mt-6 flex-wrap">
+              <button
+                onClick={() => {
+                  add(product.id, 1);
+                  closeProduct();
+                }}
+                className="inline-flex justify-center items-center h-[45px] px-7 font-semibold text-[13px] tracking-wide cursor-pointer border border-transparent bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
+                suppressHydrationWarning
+              >
+                Add to Cart
+              </button>
               <a
                 href={waLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex justify-center items-center rounded-full px-7 py-3 font-semibold text-[13px] tracking-wide cursor-pointer border border-transparent bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
+                className="inline-flex justify-center items-center h-[45px] px-7 font-semibold text-[13px] tracking-wide cursor-pointer border border-ivar-dark/30 text-ivar-dark transition-colors duration-200 hover:bg-ivar-cream"
               >
                 Enquire Now
               </a>

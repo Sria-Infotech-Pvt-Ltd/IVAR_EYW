@@ -1,5 +1,5 @@
 import "./globals.css";
-import { DM_Serif_Display, Inter, Caveat } from "next/font/google";
+import { Figtree, Caveat } from "next/font/google";
 import { CartProvider } from "./context/CartContext";
 import { ProductModalProvider } from "./context/ProductModalContext";
 import SiteChrome from "./components/SiteChrome";
@@ -11,10 +11,9 @@ import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AskIvarWidget from "./components/AskIvarWidget";
 import NetworkStatus from "./components/NetworkStatus";
 
-const displaySerif = DM_Serif_Display({
+const figtreeDisplay = Figtree({
   subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+  weight: ["500", "600"],
   variable: "--font-display",
   display: "swap",
 });
@@ -26,7 +25,7 @@ const caveat = Caveat({
   display: "swap",
 });
 
-const inter = Inter({
+const figtree = Figtree({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
@@ -67,7 +66,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${displaySerif.variable} ${inter.variable} ${caveat.variable}`}>
+    <html lang="en" className={`${figtreeDisplay.variable} ${figtree.variable} ${caveat.variable}`}>
       <body className="bg-ivar-cream text-[#172019] pb-16 md:pb-0">
         <CartProvider>
           <ProductModalProvider>

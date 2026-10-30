@@ -35,6 +35,10 @@ module.exports = {
           text: "#10150F",
           ink: "#10150F",
           muted: "#5B6158",
+          // stotodo/Dawn reference tokens (verified against live site CSS)
+          slate: "#36454F",
+          surface: "#F3F3F3",
+          accentYellow: "#FFCB0C",
           // Utility (errors, badges) — not primary brand colors
           coral: "#E85D3A",
           teal: "#3F7D20",

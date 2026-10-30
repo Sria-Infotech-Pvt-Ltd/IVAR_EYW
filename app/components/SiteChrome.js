@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import AnnouncementBar from "./AnnouncementBar";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -14,6 +15,7 @@ export default function SiteChrome({ children }) {
 
   return (
     <>
+      <AnnouncementBar />
       <Header />
       {children}
       <Footer />

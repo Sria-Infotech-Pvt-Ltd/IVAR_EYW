@@ -24,13 +24,6 @@ const ACTIONS = [
     text: "Pick your meals, set delivery days and save up to 15%.",
     cta: "See plans",
   },
-  {
-    href: "/corporate-orders",
-    icon: "people",
-    title: "Corporate Orders",
-    text: "Daily meals for teams, offices and events — bulk pricing included.",
-    cta: "Get a quote",
-  },
 ];
 
 export default function QuickActionsBand() {
@@ -47,7 +40,7 @@ export default function QuickActionsBand() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {ACTIONS.map((a, i) => (
               <RevealOnScroll key={a.href} delay={i * 0.08}>
                 <Link

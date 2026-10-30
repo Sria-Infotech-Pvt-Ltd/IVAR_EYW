@@ -2,6 +2,8 @@ import Link from "next/link";
 import LineIcon from "../components/LineIcon";
 import BowlCard from "../components/BowlCard";
 import RevealOnScroll from "../components/RevealOnScroll";
+import IngredientToProduct from "../components/IngredientToProduct";
+import MakhanaStory from "../components/MakhanaStory";
 import { products } from "../data/products";
 
 export const metadata = {
@@ -45,6 +47,10 @@ export default function MakhanaPage() {
           </a>
         </div>
       </section>
+
+      <IngredientToProduct />
+
+      <MakhanaStory />
 
       {flavours.length > 0 && (
         <section className="bg-white py-14 md:py-20">

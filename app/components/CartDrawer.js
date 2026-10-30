@@ -6,9 +6,13 @@ import { useProductModal } from "../context/ProductModalContext";
 import { money } from "../data/products";
 import { buildWhatsAppLink } from "../lib/whatsapp";
 
+const FREE_SHIPPING_THRESHOLD = 999;
+
 export default function CartDrawer() {
   const { lines, subtotal, isOpen, change, remove, closeCart } = useCart();
   const { openProduct } = useProductModal();
+  const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
+  const progressPct = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
 
   return (
     <div
@@ -36,6 +40,24 @@ export default function CartDrawer() {
             ×
           </button>
         </div>
+
+        {lines.length > 0 && (
+          <div className="px-6 pt-4 pb-1">
+            <p className="text-[12px] text-[#5b665f] mb-2">
+              {remaining > 0 ? (
+                <>You're <strong className="text-ivar-dark">{money(remaining)}</strong> away from free delivery.</>
+              ) : (
+                <span className="text-ivar-green font-semibold">You've unlocked free delivery! 🎉</span>
+              )}
+            </p>
+            <div className="h-1.5 rounded-full bg-[#ece9e1] overflow-hidden">
+              <div
+                className="h-full rounded-full bg-ivar-green transition-all duration-300"
+                style={{ width: `${progressPct}%` }}
+              />
+            </div>
+          </div>
+        )}
 
         <div className="overflow-y-auto flex-1 px-6">
           {lines.length === 0 ? (
@@ -117,7 +139,7 @@ export default function CartDrawer() {
             <Link
               href="/checkout"
               onClick={closeCart}
-              className="block text-center w-full rounded-full px-6 py-3.5 font-semibold text-[13px] tracking-wide bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
+              className="block text-center w-full px-6 h-[45px] leading-[45px] font-semibold text-[13px] tracking-wide bg-ivar-dark text-white transition-colors duration-200 hover:bg-ivar-green"
             >
               Checkout
             </Link>
@@ -129,14 +151,14 @@ export default function CartDrawer() {
               )}
               target="_blank"
               rel="noreferrer"
-              className="block text-center w-full mt-2.5 rounded-full px-6 py-3.5 font-semibold text-[13px] tracking-wide border border-[#25D366] text-[#128C4A] transition-colors duration-200 hover:bg-[#25D366]/10"
+              className="block text-center w-full mt-2.5 px-6 h-[45px] leading-[45px] font-semibold text-[13px] tracking-wide border border-[#25D366] text-[#128C4A] transition-colors duration-200 hover:bg-[#25D366]/10"
             >
               💬 Checkout via WhatsApp
             </a>
             <Link
               href="/cart"
               onClick={closeCart}
-              className="block text-center w-full mt-2.5 rounded-full px-6 py-3.5 font-semibold text-[13px] tracking-wide border border-[#d6ddd7] transition-colors duration-200 hover:border-ivar-dark"
+              className="block text-center w-full mt-2.5 px-6 h-[45px] leading-[45px] font-semibold text-[13px] tracking-wide border border-[#d6ddd7] transition-colors duration-200 hover:border-ivar-dark"
             >
               View Cart
             </Link>

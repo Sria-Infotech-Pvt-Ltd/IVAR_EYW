@@ -5,8 +5,10 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCart } from "../context/CartContext";
+import { useProductModal } from "../context/ProductModalContext";
 import LineIcon from "./LineIcon";
 import { WORKFORCE_ROLES } from "../data/workforceRoles";
+import { products, money } from "../data/products";
 
 const DATE_GO_PRODUCTS = [
   { href: "/product/82", label: "DateGo — Original" },
@@ -63,6 +65,7 @@ const navLinks = [
 
 export default function Header() {
   const { count, openCart } = useCart();
+  const { openProduct } = useProductModal();
   const router = useRouter();
   const pathname = usePathname();
   const activeHref = navLinks
@@ -72,6 +75,7 @@ export default function Header() {
   const isActive = (href) => href === activeHref;
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [searchFocused, setSearchFocused] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileSubOpen, setMobileSubOpen] = useState(null);
   const [mobileSubSubOpen, setMobileSubSubOpen] = useState(null);
@@ -88,7 +92,21 @@ export default function Header() {
   function onSearch(e) {
     e.preventDefault();
     setMenuOpen(false);
+    setSearchFocused(false);
     router.push(query.trim() ? `/shop?q=${encodeURIComponent(query.trim())}` : "/shop");
+  }
+
+  const searchResults = query.trim().length < 2
+    ? []
+    : products
+        .filter((p) => p.name.toLowerCase().includes(query.trim().toLowerCase()))
+        .slice(0, 5);
+
+  function showProduct(product) {
+    setMenuOpen(false);
+    setSearchFocused(false);
+    setQuery("");
+    openProduct(product);
   }
 
   const searchForm = (
@@ -96,6 +114,8 @@ export default function Header() {
       <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onFocus={() => setSearchFocused(true)}
+        onBlur={() => setTimeout(() => setSearchFocused(false), 150)}
         placeholder="Search Ivar foods..."
         aria-label="Search Ivar foods"
         className="w-full h-10 rounded-full border border-[#dcd9cd] bg-white pl-4 pr-11 text-[13px] text-ivar-ink placeholder:text-[#9a9f9a]"
@@ -109,6 +129,48 @@ export default function Header() {
       >
         <LineIcon name="search" size={18} stroke={1.8} />
       </button>
+
+      <AnimatePresence>
+        {searchFocused && query.trim().length >= 2 && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.15 }}
+            className="absolute left-0 right-0 top-full mt-2 bg-white rounded-xl shadow-[0_12px_32px_rgba(11,53,31,0.14)] border border-ivar-forest/10 py-2 z-50 max-h-[360px] overflow-y-auto"
+          >
+            {searchResults.length === 0 ? (
+              <p className="px-4 py-3 text-[13px] text-ivar-ink/50">No products found.</p>
+            ) : (
+              <>
+                {searchResults.map((p) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => showProduct(p)}
+                    className="w-full flex items-center gap-3 px-4 py-2.5 text-left hover:bg-ivar-cream transition-colors"
+                    suppressHydrationWarning
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.img} alt="" className="size-10 rounded-lg object-cover bg-ivar-cream shrink-0" />
+                    <span className="flex-1 min-w-0">
+                      <span className="block text-[13px] text-ivar-ink truncate">{p.name}</span>
+                      <span className="block text-[12px] text-ivar-muted">{money(p.price)}</span>
+                    </span>
+                  </button>
+                ))}
+                <button
+                  type="submit"
+                  className="w-full text-left px-4 py-2.5 text-[12.5px] font-semibold text-ivar-forest hover:bg-ivar-cream transition-colors"
+                  suppressHydrationWarning
+                >
+                  View all results →
+                </button>
+              </>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </form>
   );
 
@@ -224,7 +286,7 @@ export default function Header() {
 
           <Link
             href="/shop"
-            className="hidden 2xl:inline-flex shrink-0 items-center gap-2 bg-ivar-forest text-white text-[13px] font-semibold rounded-full px-5 py-2.5 hover:bg-ivar-forestDeep transition-colors group"
+            className="hidden 2xl:inline-flex shrink-0 items-center gap-2 bg-ivar-forest text-white text-[13px] font-semibold tracking-wide px-6 h-[45px] hover:bg-ivar-forestDeep transition-colors group"
           >
             Explore Products <LineIcon name="arrow" size={16} stroke={2} className="transition-transform group-hover:translate-x-1" />
           </Link>
@@ -364,14 +426,14 @@ export default function Header() {
                 <Link
                   href="/shop"
                   onClick={() => setMenuOpen(false)}
-                  className="inline-flex justify-center items-center gap-2 bg-ivar-forest text-white text-sm font-semibold rounded-full px-5 py-3"
+                  className="inline-flex justify-center items-center gap-2 bg-ivar-forest text-white text-sm font-semibold px-5 h-[45px]"
                 >
                   Explore Products <LineIcon name="arrow" size={16} stroke={2} />
                 </Link>
                 <Link
                   href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="inline-flex justify-center items-center gap-2 border border-ivar-forest/40 text-ivar-forest text-sm font-semibold rounded-full px-5 py-3"
+                  className="inline-flex justify-center items-center gap-2 border border-ivar-forest/40 text-ivar-forest text-sm font-semibold px-5 h-[45px]"
                 >
                   Contact Us
                 </Link>

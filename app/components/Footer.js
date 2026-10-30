@@ -40,11 +40,46 @@ const legal = [
 ];
 
 const socials = [
-  ["LinkedIn", "in"],
-  ["Instagram", "ig"],
-  ["YouTube", "yt"],
-  ["Facebook", "f"],
+  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+  { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
+  { label: "YouTube", href: "https://youtube.com", icon: "youtube" },
+  { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
 ];
+
+function SocialIcon({ name }) {
+  const common = { width: 16, height: 16, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+  if (name === "linkedin") {
+    return (
+      <svg {...common}>
+        <path d="M4.5 8.5h3v11h-3z" />
+        <circle cx="6" cy="4.75" r="1.6" />
+        <path d="M10.5 19.5v-11h3v1.6c.7-1.1 1.9-1.8 3.3-1.8 2.5 0 4.2 1.7 4.2 4.8v6.4h-3v-5.9c0-1.5-.6-2.4-1.9-2.4-1.1 0-1.9.8-2.2 1.6-.1.3-.1.6-.1 1v5.7z" />
+      </svg>
+    );
+  }
+  if (name === "instagram") {
+    return (
+      <svg {...common}>
+        <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  if (name === "youtube") {
+    return (
+      <svg {...common}>
+        <rect x="3" y="6" width="18" height="12" rx="3.5" />
+        <path d="M10.5 9.8l5 2.2-5 2.2z" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  return (
+    <svg {...common}>
+      <path d="M14.5 20.5v-7h2.3l.3-2.7h-2.6V9c0-.8.2-1.3 1.3-1.3h1.4V5.3c-.2 0-1-.1-1.9-.1-1.9 0-3.2 1.2-3.2 3.3v1.9H9.8v2.7h2.3v7z" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   function subscribe(e) {
@@ -87,14 +122,16 @@ export default function Footer() {
             <p>Hyderabad, Telangana, India</p>
           </div>
           <div className="flex gap-3 mt-6">
-            {socials.map(([label, glyph]) => (
+            {socials.map((s) => (
               <a
-                key={label}
-                href="#"
-                aria-label={label}
-                className="size-9 rounded-full border border-white/20 text-white text-[11px] font-bold flex items-center justify-center hover:bg-white/10 transition-colors"
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={s.label}
+                className="size-9 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors"
               >
-                {glyph}
+                <SocialIcon name={s.icon} />
               </a>
             ))}
           </div>
